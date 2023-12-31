@@ -1,0 +1,50 @@
+{
+  "project_info": {
+    "project_number": "129213189117",
+    "project_id": "habiter-habitreminder",
+    "storage_bucket": "habiter-habitreminder.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:129213189117:android:f105c9941140272332e794",
+        "android_client_info": {
+          "package_name": "uas.pam.habiter"
+        }
+      },
+      "oauth_client": [
+        {
+<<<<<<< HEAD
+          "client_id": "129213189117-ptei720v82hfbsrcteseoeuu3i69j4ro.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "uas.pam.habiter",
+            "certificate_hash": "153a477e43a6a3b6e15fb5e50ba69c67cf5e1bc9"
+          }
+        },
+        {
+=======
+>>>>>>> 851e39b59cfe4d85ae829fbed0efbf61bf99ca68
+          "client_id": "129213189117-7inp42bqqu155mcbaiooe239i3ni7f7s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAhrWRgsYRAqYBeyCKl__pID_Kgs29EAjY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "129213189117-7inp42bqqu155mcbaiooe239i3ni7f7s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
