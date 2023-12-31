@@ -38,7 +38,7 @@ class SignupActivity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
         if (firebaseAuth.currentUser != null) {
-            startActivity(Intent(this, AfterLogin::class.java))
+            startActivity(Intent(this, HomeActivity::class.java))
         }
     }
 
@@ -98,7 +98,7 @@ class SignupActivity : AppCompatActivity() {
                     user!!.updateProfile(userUpdateProfile)
                         .addOnCompleteListener {
                             progressDialog.dismiss()
-                            startActivity(Intent(this, AfterLogin::class.java))
+                            startActivity(Intent(this, HomeActivity::class.java))
                         }
                         .addOnFailureListener { error2 ->
                             Toast.makeText(this, error2.localizedMessage, LENGTH_SHORT).show()
@@ -133,7 +133,7 @@ class SignupActivity : AppCompatActivity() {
         val credential = GoogleAuthProvider.getCredential(idToken, null)
         firebaseAuth.signInWithCredential(credential)
             .addOnSuccessListener {
-                startActivity(Intent(this, AfterLogin::class.java))
+                startActivity(Intent(this, HomeActivity::class.java))
             }
             .addOnFailureListener { error ->
                 Toast.makeText(this, error.localizedMessage, LENGTH_SHORT).show()

@@ -34,7 +34,7 @@ class LoginActivity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
         if (firebaseAuth.currentUser!=null){
-            startActivity(Intent(this, AfterLogin::class.java))
+            startActivity(Intent(this, HomeActivity::class.java))
         }
     }
 
@@ -84,7 +84,7 @@ class LoginActivity : AppCompatActivity() {
 
         firebaseAuth.signInWithEmailAndPassword(email, password)
             .addOnSuccessListener {
-                startActivity(Intent(this, AfterLogin::class.java))
+                startActivity(Intent(this, HomeActivity::class.java))
             }
             .addOnFailureListener { error ->
                 Toast.makeText(this, error.localizedMessage, LENGTH_SHORT).show()
@@ -114,7 +114,7 @@ class LoginActivity : AppCompatActivity() {
         val credential = GoogleAuthProvider.getCredential(idToken, null)
         firebaseAuth.signInWithCredential(credential)
             .addOnSuccessListener {
-                startActivity(Intent(this, AfterLogin::class.java))
+                startActivity(Intent(this, HomeActivity::class.java))
             }
             .addOnFailureListener { error ->
                 Toast.makeText(this, error.localizedMessage, LENGTH_SHORT).show()
