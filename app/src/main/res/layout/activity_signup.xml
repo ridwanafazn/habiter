@@ -4,11 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-<<<<<<< HEAD
     tools:context=".SignupActivity"
-=======
-    tools:context=".LoginActiviity"
->>>>>>> 851e39b59cfe4d85ae829fbed0efbf61bf99ca68
     android:background="#1C1C23"
     android:paddingHorizontal="24dp"
     >
@@ -52,7 +48,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress"
-                android:background="@drawable/input"
+                android:background="@drawable/bg_input"
                 android:textSize="20sp"
                 android:textColor="@color/white"
                 android:layout_gravity="center_horizontal"
@@ -73,7 +69,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
-                android:background="@drawable/input"
+                android:background="@drawable/bg_input"
                 android:textSize="20sp"
                 android:textColor="@color/white"
                 android:layout_gravity="center_horizontal"
@@ -94,7 +90,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
-                android:background="@drawable/input"
+                android:background="@drawable/bg_input"
                 android:textSize="20sp"
                 android:textColor="@color/white"
                 android:layout_gravity="center_horizontal"
@@ -111,13 +107,10 @@
                 android:textColor="@color/white"
                 />
             <androidx.appcompat.widget.AppCompatButton
-<<<<<<< HEAD
                 android:id="@id/button_signup"
-=======
->>>>>>> 851e39b59cfe4d85ae829fbed0efbf61bf99ca68
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/button"
+                android:background="@drawable/bg_button"
                 android:textColor="@color/white"
                 android:backgroundTint="#FF7966"
                 android:textStyle="bold"
@@ -132,19 +125,16 @@
                 android:layout_gravity="center"
                 />
             <androidx.appcompat.widget.AppCompatButton
-<<<<<<< HEAD
                 android:id="@+id/button_google"
-=======
->>>>>>> 851e39b59cfe4d85ae829fbed0efbf61bf99ca68
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/button"
+                android:background="@drawable/bg_button"
                 android:textStyle="bold"
                 android:backgroundTint="@color/white"
                 android:textAllCaps="false"
                 android:textColor="@color/black"
                 android:text="Sign up With Google" />
-    </LinearLayout>
+        </LinearLayout>
 
 
 
@@ -162,7 +152,7 @@
         android:id="@+id/button_signin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/button"
+        android:background="@drawable/bg_button"
         android:text="Sign In"
         android:textColor="@color/white"
         android:backgroundTint="@color/gray"

@@ -5,17 +5,6 @@ plugins {
 }
 
 android {
-<<<<<<< HEAD
-    signingConfigs {
-        getByName("debug") {
-            storeFile = file("C:\\Users\\Ridwanskie\\Downloads\\Keystore\\keystore.jks")
-            storePassword = "mobileappkotlin121"
-            keyPassword = "mobileappkotlin121"
-            keyAlias = "habiterkey"
-        }
-    }
-=======
->>>>>>> 851e39b59cfe4d85ae829fbed0efbf61bf99ca68
     namespace = "uas.pam.habiter"
     compileSdk = 34
 
@@ -27,10 +16,6 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-<<<<<<< HEAD
-        signingConfig = signingConfigs.getByName("debug")
-=======
->>>>>>> 851e39b59cfe4d85ae829fbed0efbf61bf99ca68
     }
 
     buildTypes {
@@ -55,13 +40,12 @@ android {
 }
 
 dependencies {
+
+    implementation("com.google.android.flexbox:flexbox:3.0.0")
     implementation(platform("com.google.firebase:firebase-bom:32.7.0"))
-<<<<<<< HEAD
     implementation("com.google.firebase:firebase-analytics-ktx")
     implementation("com.google.firebase:firebase-auth-ktx")
-=======
     implementation("com.google.firebase:firebase-analytics")
->>>>>>> 851e39b59cfe4d85ae829fbed0efbf61bf99ca68
     implementation("com.michalsvec:single-row-calednar:1.0.0")
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
@@ -74,10 +58,5 @@ dependencies {
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
-<<<<<<< HEAD
-
     implementation("com.google.android.gms:play-services-auth:20.7.0")
-
-=======
->>>>>>> 851e39b59cfe4d85ae829fbed0efbf61bf99ca68
 }

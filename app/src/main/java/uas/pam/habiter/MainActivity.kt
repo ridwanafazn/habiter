@@ -34,11 +34,7 @@ class MainActivity() : AppCompatActivity(), Parcelable {
         }
 
         buttonSignin.setOnClickListener {
-<<<<<<< HEAD
             val intent = Intent(this@MainActivity, LoginActivity::class.java)
-=======
-            val intent = Intent(this@MainActivity, LoginActiviity::class.java)
->>>>>>> 851e39b59cfe4d85ae829fbed0efbf61bf99ca68
             startActivity(intent)
         }
     }

@@ -1,31 +1,154 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.drawerlayout.widget.DrawerLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#1C1C23"
     android:fitsSystemWindows="true"
     tools:openDrawer="start">
-  <CalendarView
+
+  <androidx.constraintlayout.widget.ConstraintLayout
+      android:id="@+id/hero"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:background="@drawable/bg_hero"
+      android:paddingBottom="24dp"
+      android:orientation="vertical"
+      app:layout_constraintTop_toTopOf="parent">
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="12dp"
+        android:backgroundTint="@color/transparent"
+        android:src="@drawable/ic_settings"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="12dp"
+        android:gravity="center"
+        android:text="Dashboard"
+        android:textColor="#a2a285"
+        android:textSize="20dp"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/profil"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="24dp"
+        android:paddingTop="50dp"
+        android:paddingBottom="25dp"
+        app:layout_constraintTop_toBottomOf="@+id/title">
+
+      <LinearLayout
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:orientation="vertical"
+          app:layout_constraintBottom_toBottomOf="parent"
+          app:layout_constraintLeft_toLeftOf="parent"
+          app:layout_constraintTop_toTopOf="parent">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hai,"
+            android:textColor="@color/white"
+            android:textSize="20dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sumitra"
+            android:textColor="@color/white"
+            android:textSize="24dp"
+            android:textStyle="bold" />
+      </LinearLayout>
+      <ImageView
+          android:layout_width="70dp"
+          android:layout_height="70dp"
+          android:src="@drawable/avatar_1"
+          app:layout_constraintBottom_toBottomOf="parent"
+          app:layout_constraintRight_toRightOf="parent"
+          app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/profil"
+        >
+
+      <ImageView
+          android:id="@+id/iv_calendar_previous"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:padding="20dp"
+          android:src="@drawable/ic_left_arrow"
+          app:layout_constraintEnd_toStartOf="@+id/iv_calendar_next"
+          app:layout_constraintTop_toTopOf="parent"
+          app:tint="@color/white" />
+
+      <ImageView
+          android:id="@+id/iv_calendar_next"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:padding="20dp"
+          android:src="@drawable/ic_right_arrow"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintTop_toTopOf="parent"
+          app:tint="@color/white" />
+
+      <TextView
+          android:id="@+id/text_date_month"
+          style="@style/TextAppearance.MaterialComponents.Subtitle2"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginLeft="24dp"
+          android:textSize="18dp"
+          android:textColor="@color/white"
+          app:layout_constraintBottom_toBottomOf="@id/iv_calendar_next"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toTopOf="@id/iv_calendar_next"
+          tools:text="December 2020" />
+
+      <androidx.recyclerview.widget.RecyclerView
+          android:id="@+id/recyclerView"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_marginVertical="12dp"
+          android:orientation="horizontal"
+          tools:listitem="@layout/date_layout"
+          app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+          app:layout_constraintLeft_toLeftOf="parent"
+          app:layout_constraintRight_toRightOf="parent"
+          app:layout_constraintTop_toBottomOf="@id/text_date_month" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+  </androidx.constraintlayout.widget.ConstraintLayout>
+
+  <ScrollView
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginVertical="12sp"
+      app:layout_constraintTop_toBottomOf="@+id/hero">
+    <include layout="@layout/card_view" />
+  </ScrollView>
+
+  <com.google.android.material.floatingactionbutton.FloatingActionButton
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      />
-
-<!--  <include-->
-<!--      android:id="@+id/app_bar_main"-->
-<!--      layout="@layout/app_bar_main"-->
-<!--      android:layout_width="match_parent"-->
-<!--      android:layout_height="match_parent" />-->
-
-
-<!--  <com.google.android.material.navigation.NavigationView-->
-<!--      android:id="@+id/nav_view"-->
-<!--      android:layout_width="wrap_content"-->
-<!--      android:layout_height="match_parent"-->
-<!--      android:layout_gravity="start"-->
-<!--      android:fitsSystemWindows="true"-->
-<!--      app:headerLayout="@layout/nav_header_main"-->
-<!--      app:menu="@menu/activity_main_drawer" />-->
-</androidx.drawerlayout.widget.DrawerLayout>
+      android:layout_marginRight="12dp"
+      android:layout_marginBottom="12dp"
+      android:backgroundTint="#FF7966"
+      android:clickable="true"
+      android:elevation="6dp"
+      android:src="@drawable/ic_add"
+      android:tint="@android:color/white"
+      app:fabSize="normal"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintRight_toRightOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
