@@ -12,9 +12,12 @@ import androidx.recyclerview.widget.RecyclerView
 import uas.pam.habiter.R
 import uas.pam.habiter.screen.HomeActivity
 import kotlin.collections.ArrayList
+import android.graphics.Typeface
 
-class CalendarAdapter(private val listener: (calendarDateModel: CalendarDateModel, position: Int) -> Unit):
-    RecyclerView.Adapter<CalendarAdapter.CalendarViewHolder>(){
+
+
+class CalendarAdapter(private val listener: (calendarDateModel: CalendarDateModel, position: Int) -> Unit) :
+    RecyclerView.Adapter<CalendarAdapter.CalendarViewHolder>() {
 
     private var list = ArrayList<CalendarDateModel>()
     var adapterPosition = -1
@@ -37,39 +40,37 @@ class CalendarAdapter(private val listener: (calendarDateModel: CalendarDateMode
     }
 
 
-    @RequiresApi(Build.VERSION_CODES.O)
     override fun onBindViewHolder(holder: CalendarViewHolder, position: Int) {
         val itemList = list[position]
         holder.calendarDay.text = itemList.calendarDay
         holder.calendarDate.text = itemList.calendarDate
 
         holder.itemView.setOnClickListener {
-            adapterPosition = position
-            notifyItemRangeChanged(0, list.size)
+            itemList.isSelected = true // Mark the clicked item as selected
+            listener.invoke(itemList, position)
 
-            val text = itemList.calendarYear.toString()
-            val date = itemList.calendarDate
-            val day = itemList.calendarDay
-            mListener?.onItemClick(text,date,day)
         }
-        if (position == adapterPosition){
-            holder.calendarDay.setTextColor(ContextCompat.getColor(holder.itemView.context,
-                R.color.white
-            ))
-            holder.calendarDate.setTextColor(ContextCompat.getColor(holder.itemView.context,
-                R.color.white
-            ))
+
+        // Highlight the current day and selected day with different colors
+        if (itemList.isCurrentDay) {
+            holder.calendarDay.setTextColor(ContextCompat.getColor(holder.itemView.context, R.color.colorAccent))
+            holder.calendarDate.setTextColor(ContextCompat.getColor(holder.itemView.context, R.color.colorAccent))
             holder.linear.background = holder.itemView.context.getDrawable(R.drawable.bg_rectangle_fill)
-        }else {
-            holder.calendarDay.setTextColor(ContextCompat.getColor(holder.itemView.context,
-                R.color.white
-            ))
-            holder.calendarDate.setTextColor(ContextCompat.getColor(holder.itemView.context,
-                R.color.white
-            ))
+        } else if (itemList.isSelected) {
+            holder.calendarDay.setTypeface(null, Typeface.BOLD)
+            holder.calendarDate.setTypeface(null, Typeface.BOLD)
+
+            holder.calendarDay.setTextColor(ContextCompat.getColor(holder.itemView.context, R.color.colorSelectedText))
+            holder.calendarDate.setTextColor(ContextCompat.getColor(holder.itemView.context, R.color.colorSelectedText))
+            holder.linear.background = holder.itemView.context.getDrawable(R.drawable.bg_rectangle_fill)
+        } else {
+            holder.calendarDay.setTypeface(null, Typeface.NORMAL)
+            holder.calendarDate.setTypeface(null, Typeface.NORMAL)
+
+            holder.calendarDay.setTextColor(ContextCompat.getColor(holder.itemView.context, R.color.colorWhite))
+            holder.calendarDate.setTextColor(ContextCompat.getColor(holder.itemView.context, R.color.colorWhite))
             holder.linear.background = holder.itemView.context.getDrawable(R.drawable.bg_rectangle_outline)
         }
-
     }
     override fun getItemCount(): Int {
         return list.size

@@ -17,6 +17,7 @@ import java.util.*
 import kotlin.collections.ArrayList
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import uas.pam.habiter.R
 import uas.pam.habiter.ui.CalendarAdapter
 import uas.pam.habiter.ui.CalendarDateModel
@@ -58,6 +59,7 @@ class HomeActivity : AppCompatActivity(), CalendarAdapter.onItemClickListener {
         setUpClickListener()
         setUpCalendar()
 
+
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestIdToken(getString(R.string.default_web_client_id))
             .requestEmail()
@@ -75,19 +77,22 @@ class HomeActivity : AppCompatActivity(), CalendarAdapter.onItemClickListener {
         btnSetting.setOnClickListener {
             startActivity(Intent(this, SettingActivity::class.java))
         }
+        // Inisialisasi FAB
+        val fab: FloatingActionButton = findViewById(R.id.fab_add)
+        fab.setOnClickListener {
+            // Memulai FormActivity saat FAB diklik
+            startActivity(Intent(this, FormActivity::class.java))
+        }
     }
 
     private fun setUpClickListener() {
         ivCalendarNext.setOnClickListener {
-            cal.add(Calendar.MONTH, 1)
+            cal.add(Calendar.DAY_OF_MONTH, 7) // Move to the next week
             setUpCalendar()
         }
         ivCalendarPrevious.setOnClickListener {
-            cal.add(Calendar.MONTH, -1)
-            if (cal == currentDate)
-                setUpCalendar()
-            else
-                setUpCalendar()
+            cal.add(Calendar.DAY_OF_MONTH, -7) // Move to the previous week
+            setUpCalendar()
         }
     }
 
@@ -113,16 +118,22 @@ class HomeActivity : AppCompatActivity(), CalendarAdapter.onItemClickListener {
      */
     private fun setUpCalendar() {
         val calendarList = ArrayList<CalendarDateModel>()
-        tvDateMonth.text = sdf.format(cal.time)
-        val monthCalendar = cal.clone() as Calendar
-        val maxDaysInMonth = cal.getActualMaximum(Calendar.DAY_OF_MONTH)
-        dates.clear()
-        monthCalendar.set(Calendar.DAY_OF_MONTH, 1)
-        while (dates.size < maxDaysInMonth) {
-            dates.add(monthCalendar.time)
-            calendarList.add(CalendarDateModel(monthCalendar.time))
-            monthCalendar.add(Calendar.DAY_OF_MONTH, 1)
+        tvDateMonth.text = SimpleDateFormat("MMMM yyyy", Locale.ENGLISH).format(cal.time)
+
+        // Get the start date of the week
+        val weekStartDate = cal.clone() as Calendar
+        weekStartDate.set(Calendar.DAY_OF_WEEK, weekStartDate.firstDayOfWeek)
+
+        // Find the current day position in the week
+        val currentDayPosition = currentDate.get(Calendar.DAY_OF_WEEK) - weekStartDate.firstDayOfWeek
+
+        // Generate dates for the week
+        for (i in 0 until 7) {
+            val date = weekStartDate.clone() as Calendar
+            date.add(Calendar.DAY_OF_MONTH, i)
+            calendarList.add(CalendarDateModel(date.time, date == currentDate, false))
         }
+
         calendarList2.clear()
         calendarList2.addAll(calendarList)
         adapter.setOnItemClickListener(this@HomeActivity)
@@ -130,6 +141,9 @@ class HomeActivity : AppCompatActivity(), CalendarAdapter.onItemClickListener {
     }
 
     override fun onItemClick(text: String, date: String, day: String) {
-        TODO("Not yet implemented")
+        // Handle item click event
+        // Anda dapat menggunakan informasi (text, date, day) untuk melakukan tindakan tertentu
+        // Misalnya, perbarui UI, tampilkan detail, dll.
+
     }
 }

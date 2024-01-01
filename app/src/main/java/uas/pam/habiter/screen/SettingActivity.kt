@@ -14,22 +14,24 @@ import com.google.firebase.auth.FirebaseAuth
 import uas.pam.habiter.R
 
 class SettingActivity : AppCompatActivity() {
-    lateinit var btnCloseSetting:AppCompatImageButton
-    lateinit var btnLogout:Button
-    lateinit var textFullName:TextView
-    lateinit var textEmail:TextView
+    lateinit var btnCloseSetting: AppCompatImageButton
+    lateinit var btnLogout: Button
+    lateinit var textFullName: TextView
+    lateinit var textEmail: TextView
     lateinit var googleSignInClient: GoogleSignInClient
-
+    lateinit var btnEditProfile: Button
 
     private val firebaseAuth = FirebaseAuth.getInstance()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_setting)
 
         textFullName = findViewById(R.id.textfullName)
         textEmail = findViewById(R.id.textEmail)
-        btnCloseSetting = findViewById<AppCompatImageButton>(R.id.button_close_setting)
-        btnLogout = findViewById<AppCompatButton>(R.id.button_logout)
+        btnCloseSetting = findViewById(R.id.button_close_setting)
+        btnLogout = findViewById(R.id.button_logout)
+        btnEditProfile = findViewById(R.id.edit_profil)
 
         val currentUser = firebaseAuth.currentUser
         textFullName.text = currentUser?.displayName
@@ -51,6 +53,10 @@ class SettingActivity : AppCompatActivity() {
 
         btnCloseSetting.setOnClickListener {
             finish()
+        }
+
+        btnEditProfile.setOnClickListener {
+            startActivity(Intent(this, EditProfileActivity::class.java))
         }
     }
 }

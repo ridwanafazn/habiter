@@ -3,7 +3,7 @@ package uas.pam.habiter.ui
 import java.text.SimpleDateFormat
 import java.util.*
 
-data class  CalendarDateModel(var data: Date, var isSelected: Boolean = true) {
+data class CalendarDateModel(var data: Date, var isCurrentDay: Boolean = false, var isSelected: Boolean = false) {
 
     val calendarDay: String
         get() = SimpleDateFormat("EE", Locale.getDefault()).format(data)

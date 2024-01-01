@@ -9,4 +9,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="gray">#3E3E3E</color>
     <color name="transparent">#00000000</color>
+    <color name="colorAccent">#FF000000</color>
+    <color name="colorSelectedText">#FFFFFF</color>
+    <color name="colorWhite">#FFFFFF</color>
 </resources>
