@@ -1,13 +1,11 @@
-package uas.pam.habiter
+package uas.pam.habiter.screen
 
 import android.app.ProgressDialog
-import android.content.ContentProviderClient
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
-import android.widget.TextView
 import android.widget.Toast
 import android.widget.Toast.LENGTH_SHORT
 import com.google.android.gms.auth.api.signin.GoogleSignIn
@@ -16,40 +14,42 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
+import com.google.firebase.auth.userProfileChangeRequest
+import uas.pam.habiter.R
 
-class LoginActivity : AppCompatActivity() {
-    private lateinit var editEmail: EditText
-    private lateinit var editPassword: EditText
-    private lateinit var btnSignup: Button
-    private lateinit var btnSignin: Button
-    private lateinit var btnGoogle: Button
-    private lateinit var btnForgotPassword: TextView
-    private lateinit var progressDialog : ProgressDialog
-    private lateinit var googleSignInClient: GoogleSignInClient
+class SignupActivity : AppCompatActivity() {
+    lateinit var editEmail: EditText
+    lateinit var editPassword: EditText
+    lateinit var editPasswordConf: EditText
+    lateinit var btnSignup: Button
+    lateinit var btnSignin: Button
+    lateinit var btnGoogle: Button
+    lateinit var progressDialog: ProgressDialog
+    lateinit var googleSignInClient: GoogleSignInClient
 
-    private var firebaseAuth = FirebaseAuth.getInstance()
 
-    companion object{
+    var firebaseAuth = FirebaseAuth.getInstance()
+
+    companion object {
         private const val RC_SIGN_IN = 999
     }
 
     override fun onStart() {
         super.onStart()
-        if (firebaseAuth.currentUser!=null){
+        if (firebaseAuth.currentUser != null) {
             startActivity(Intent(this, HomeActivity::class.java))
         }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
+        setContentView(R.layout.activity_signup)
         editEmail = findViewById(R.id.editTextTextEmailAddress)
         editPassword = findViewById(R.id.editTextTextPassword)
+        editPasswordConf = findViewById(R.id.editTextTextRepassword)
         btnSignup = findViewById(R.id.button_signup)
         btnSignin = findViewById(R.id.button_signin)
-        btnGoogle= findViewById(R.id.button_google)
-        btnForgotPassword = findViewById(R.id.clickForgotPassword)
-
+        btnGoogle = findViewById(R.id.button_google)
 
         progressDialog = ProgressDialog(this)
         progressDialog.setTitle("Logging")
@@ -61,59 +61,73 @@ class LoginActivity : AppCompatActivity() {
             .build()
         googleSignInClient = GoogleSignIn.getClient(this, gso)
 
-
         btnSignin.setOnClickListener {
-            if (editEmail.text.isNotEmpty() && editPassword.text.isNotEmpty()){
-                processLogin()
-            }else{
-                Toast.makeText(this, "Please fill email and password", LENGTH_SHORT).show()
-            }
+            startActivity(Intent(this, LoginActivity::class.java))
+            finish()
         }
         btnGoogle.setOnClickListener {
             val signInIntent = googleSignInClient.signInIntent
             startActivityForResult(signInIntent, RC_SIGN_IN)
         }
-        btnForgotPassword.setOnClickListener {
-            startActivity(Intent(this, SearchEmailActivity::class.java))
-        }
         btnSignup.setOnClickListener {
-            startActivity(Intent(this, SignupActivity::class.java))
+            if (editEmail.text.isNotEmpty() && editPassword.text.isNotEmpty()) {
+                if (editPassword.text.toString() == editPasswordConf.text.toString()) {
+                    //Launch Register
+                    processRegister()
+                } else {
+                    Toast.makeText(this, "Password is doesn't match", LENGTH_SHORT).show()
+                }
+            } else {
+                Toast.makeText(this, "Please fill the blank form", LENGTH_SHORT).show()
+            }
         }
     }
 
-    private fun processLogin(){
+    private fun processRegister() {
         val email = editEmail.text.toString()
         val password = editPassword.text.toString()
 
         progressDialog.show()
-
-        firebaseAuth.signInWithEmailAndPassword(email, password)
-            .addOnSuccessListener {
-                startActivity(Intent(this, HomeActivity::class.java))
+        firebaseAuth.createUserWithEmailAndPassword(email, password)
+            .addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    val userUpdateProfile = userProfileChangeRequest {
+                    }
+                    val user = task.result.user
+                    user!!.updateProfile(userUpdateProfile)
+                        .addOnCompleteListener {
+                            progressDialog.dismiss()
+                            startActivity(Intent(this, HomeActivity::class.java))
+                        }
+                        .addOnFailureListener { error2 ->
+                            Toast.makeText(this, error2.localizedMessage, LENGTH_SHORT).show()
+                        }
+                } else {
+                    progressDialog.dismiss()
+                }
             }
             .addOnFailureListener { error ->
                 Toast.makeText(this, error.localizedMessage, LENGTH_SHORT).show()
-            }
-            .addOnCompleteListener {
-                progressDialog.dismiss()
             }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if(requestCode == RC_SIGN_IN){
+        if (requestCode == RC_SIGN_IN) {
             //HANDLE LOGIN PROCESS GOOGLE
             val task = GoogleSignIn.getSignedInAccountFromIntent(data)
             try {
+                //berhasil
                 val account = task.getResult(ApiException::class.java)!!
                 firebaseAuthWithGoogle(account.idToken!!)
-            }catch (e: ApiException){
+            } catch (e: ApiException) {
                 e.printStackTrace()
                 Toast.makeText(applicationContext, e.localizedMessage, LENGTH_SHORT).show()
             }
         }
     }
-    private fun firebaseAuthWithGoogle(idToken:String){
+
+    private fun firebaseAuthWithGoogle(idToken: String) {
         progressDialog.show()
         val credential = GoogleAuthProvider.getCredential(idToken, null)
         firebaseAuth.signInWithCredential(credential)

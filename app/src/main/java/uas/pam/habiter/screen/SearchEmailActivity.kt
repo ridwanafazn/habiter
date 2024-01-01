@@ -1,6 +1,5 @@
-package uas.pam.habiter
+package uas.pam.habiter.screen
 
-import android.content.Intent
 import android.os.Bundle
 import android.widget.EditText
 import android.widget.Toast
@@ -8,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
 import androidx.appcompat.widget.AppCompatImageButton
 import com.google.firebase.auth.FirebaseAuth
+import uas.pam.habiter.R
 
 class SearchEmailActivity : AppCompatActivity() {
     private lateinit var btnCloseForgotPassword: AppCompatImageButton

@@ -12,13 +12,13 @@
         android:theme="@style/Theme.Habiter"
         tools:targetApi="31">
         <activity
-            android:name=".EditProfileActivity"
+            android:name=".screen.EditProfileActivity"
             android:exported="false" />
         <activity
-            android:name=".SettingActivity"
+            android:name=".screen.SettingActivity"
             android:exported="false" />
         <activity
-            android:name=".SearchEmailActivity"
+            android:name=".screen.SearchEmailActivity"
             android:exported="false" />
 
         <activity
@@ -38,16 +38,16 @@
 
 
         <activity
-            android:name=".FormActivity"
+            android:name=".screen.FormActivity"
             android:exported="false" />
         <activity
-            android:name=".HomeActivity"
+            android:name=".screen.HomeActivity"
             android:exported="false" />
         <activity
-            android:name=".SignupActivity"
+            android:name=".screen.SignupActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".screen.LoginActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

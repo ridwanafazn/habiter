@@ -1,4 +1,4 @@
-package uas.pam.habiter
+package uas.pam.habiter.screen
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -17,6 +17,9 @@ import java.util.*
 import kotlin.collections.ArrayList
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import uas.pam.habiter.R
+import uas.pam.habiter.ui.CalendarAdapter
+import uas.pam.habiter.ui.CalendarDateModel
 
 class HomeActivity : AppCompatActivity(), CalendarAdapter.onItemClickListener {
     private lateinit var recyclerView: RecyclerView

@@ -8,8 +8,11 @@ import android.view.Menu
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.ui.AppBarConfiguration
-import uas.pam.habiter.databinding.ActivityMainBinding
 import com.google.firebase.auth.FirebaseAuth
+import uas.pam.habiter.databinding.ActivityMainBinding
+import uas.pam.habiter.screen.HomeActivity
+import uas.pam.habiter.screen.LoginActivity
+import uas.pam.habiter.screen.SignupActivity
 
 class MainActivity() : AppCompatActivity(), Parcelable {
 

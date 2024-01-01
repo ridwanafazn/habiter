@@ -9,6 +9,7 @@ import androidx.appcompat.widget.AppCompatEditText
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthActionCodeException
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
+import uas.pam.habiter.screen.LoginActivity
 
 class ResetPasswordActivity : AppCompatActivity() {
     private lateinit var newPasswordEditText: AppCompatEditText

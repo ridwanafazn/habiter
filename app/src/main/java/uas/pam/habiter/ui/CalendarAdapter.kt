@@ -1,4 +1,4 @@
-package uas.pam.habiter
+package uas.pam.habiter.ui
 
 import android.os.Build
 import android.view.LayoutInflater
@@ -9,6 +9,8 @@ import android.widget.TextView
 import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
+import uas.pam.habiter.R
+import uas.pam.habiter.screen.HomeActivity
 import kotlin.collections.ArrayList
 
 class CalendarAdapter(private val listener: (calendarDateModel: CalendarDateModel, position: Int) -> Unit):
@@ -51,12 +53,20 @@ class CalendarAdapter(private val listener: (calendarDateModel: CalendarDateMode
             mListener?.onItemClick(text,date,day)
         }
         if (position == adapterPosition){
-            holder.calendarDay.setTextColor(ContextCompat.getColor(holder.itemView.context, R.color.white))
-            holder.calendarDate.setTextColor(ContextCompat.getColor(holder.itemView.context, R.color.white))
+            holder.calendarDay.setTextColor(ContextCompat.getColor(holder.itemView.context,
+                R.color.white
+            ))
+            holder.calendarDate.setTextColor(ContextCompat.getColor(holder.itemView.context,
+                R.color.white
+            ))
             holder.linear.background = holder.itemView.context.getDrawable(R.drawable.bg_rectangle_fill)
         }else {
-            holder.calendarDay.setTextColor(ContextCompat.getColor(holder.itemView.context, R.color.white))
-            holder.calendarDate.setTextColor(ContextCompat.getColor(holder.itemView.context, R.color.white))
+            holder.calendarDay.setTextColor(ContextCompat.getColor(holder.itemView.context,
+                R.color.white
+            ))
+            holder.calendarDate.setTextColor(ContextCompat.getColor(holder.itemView.context,
+                R.color.white
+            ))
             holder.linear.background = holder.itemView.context.getDrawable(R.drawable.bg_rectangle_outline)
         }
 
