@@ -48,8 +48,6 @@ class SearchEmailActivity : AppCompatActivity() {
                         "Password reset email sent. Please check your inbox.",
                         Toast.LENGTH_SHORT
                     ).show()
-                    // Intent to ResetPasswordActivity with email as extra
-
                 } else {
                     handleSendPasswordResetEmailError(task.exception)
                 }
