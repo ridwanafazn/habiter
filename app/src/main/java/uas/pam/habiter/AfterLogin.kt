@@ -21,11 +21,9 @@ class AfterLogin : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.nav_header_main)
+        setContentView(R.layout.activity_home)
 
-        textFullName = findViewById(R.id.full_name)
-        textEmail = findViewById(R.id.email)
-        btnLogout = findViewById(R.id.btn_logout)
+        textFullName = findViewById(R.id.fullName)
 
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestIdToken(getString(R.string.default_web_client_id))

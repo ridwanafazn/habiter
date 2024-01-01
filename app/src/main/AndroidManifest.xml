@@ -18,6 +18,26 @@
             android:name=".SettingActivity"
             android:exported="false" />
         <activity
+            android:name=".SearchEmailActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".ResetPasswordActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data
+                    android:scheme="https"
+                    android:host="habiter-habitreminder.firebaseapp.com"
+                    android:pathPrefix="/__/auth/action" />
+            </intent-filter>
+        </activity>
+
+
+
+        <activity
             android:name=".FormActivity"
             android:exported="false" />
         <activity
@@ -25,9 +45,6 @@
             android:exported="false" />
         <activity
             android:name=".SignupActivity"
-            android:exported="false" />
-        <activity
-            android:name=".AfterLogin"
             android:exported="false" />
         <activity
             android:name=".LoginActivity"

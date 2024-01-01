@@ -5,6 +5,7 @@
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    tools:context=".HomeActivity"
     android:background="#1C1C23"
     android:fitsSystemWindows="true"
     tools:openDrawer="start">
@@ -19,6 +20,7 @@
       app:layout_constraintTop_toTopOf="parent">
 
     <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/button_setting"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_marginLeft="12dp"
@@ -62,6 +64,7 @@
             android:textColor="@color/white"
             android:textSize="20dp" />
         <TextView
+            android:id="@+id/fullName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Sumitra"

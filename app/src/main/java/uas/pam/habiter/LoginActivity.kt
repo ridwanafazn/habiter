@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import android.widget.Toast.LENGTH_SHORT
 import com.google.android.gms.auth.api.signin.GoogleSignIn
@@ -17,15 +18,16 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 
 class LoginActivity : AppCompatActivity() {
-    lateinit var editEmail: EditText
-    lateinit var editPassword: EditText
-    lateinit var btnSignup: Button
-    lateinit var btnSignin: Button
-    lateinit var btnGoogle: Button
-    lateinit var progressDialog : ProgressDialog
-    lateinit var googleSignInClient: GoogleSignInClient
+    private lateinit var editEmail: EditText
+    private lateinit var editPassword: EditText
+    private lateinit var btnSignup: Button
+    private lateinit var btnSignin: Button
+    private lateinit var btnGoogle: Button
+    private lateinit var btnForgotPassword: TextView
+    private lateinit var progressDialog : ProgressDialog
+    private lateinit var googleSignInClient: GoogleSignInClient
 
-    var firebaseAuth = FirebaseAuth.getInstance()
+    private var firebaseAuth = FirebaseAuth.getInstance()
 
     companion object{
         private const val RC_SIGN_IN = 999
@@ -34,7 +36,7 @@ class LoginActivity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
         if (firebaseAuth.currentUser!=null){
-            startActivity(Intent(this, AfterLogin::class.java))
+            startActivity(Intent(this, HomeActivity::class.java))
         }
     }
 
@@ -46,6 +48,8 @@ class LoginActivity : AppCompatActivity() {
         btnSignup = findViewById(R.id.button_signup)
         btnSignin = findViewById(R.id.button_signin)
         btnGoogle= findViewById(R.id.button_google)
+        btnForgotPassword = findViewById(R.id.clickForgotPassword)
+
 
         progressDialog = ProgressDialog(this)
         progressDialog.setTitle("Logging")
@@ -69,8 +73,9 @@ class LoginActivity : AppCompatActivity() {
             val signInIntent = googleSignInClient.signInIntent
             startActivityForResult(signInIntent, RC_SIGN_IN)
         }
-
-
+        btnForgotPassword.setOnClickListener {
+            startActivity(Intent(this, SearchEmailActivity::class.java))
+        }
         btnSignup.setOnClickListener {
             startActivity(Intent(this, SignupActivity::class.java))
         }
@@ -84,7 +89,7 @@ class LoginActivity : AppCompatActivity() {
 
         firebaseAuth.signInWithEmailAndPassword(email, password)
             .addOnSuccessListener {
-                startActivity(Intent(this, AfterLogin::class.java))
+                startActivity(Intent(this, HomeActivity::class.java))
             }
             .addOnFailureListener { error ->
                 Toast.makeText(this, error.localizedMessage, LENGTH_SHORT).show()
@@ -100,7 +105,6 @@ class LoginActivity : AppCompatActivity() {
             //HANDLE LOGIN PROCESS GOOGLE
             val task = GoogleSignIn.getSignedInAccountFromIntent(data)
             try {
-                //berhasil
                 val account = task.getResult(ApiException::class.java)!!
                 firebaseAuthWithGoogle(account.idToken!!)
             }catch (e: ApiException){
@@ -114,7 +118,7 @@ class LoginActivity : AppCompatActivity() {
         val credential = GoogleAuthProvider.getCredential(idToken, null)
         firebaseAuth.signInWithCredential(credential)
             .addOnSuccessListener {
-                startActivity(Intent(this, AfterLogin::class.java))
+                startActivity(Intent(this, HomeActivity::class.java))
             }
             .addOnFailureListener { error ->
                 Toast.makeText(this, error.localizedMessage, LENGTH_SHORT).show()
