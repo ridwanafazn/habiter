@@ -41,6 +41,28 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="Fullname"
+                android:layout_marginTop="8dp"
+                android:paddingLeft="4dp"
+                android:textColor="@color/white"
+
+                />
+            <EditText
+                android:id="@+id/editTextTextfullName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:background="@drawable/bg_input"
+                android:textSize="20sp"
+                android:textColor="@color/white"
+                android:layout_gravity="center_horizontal"
+                android:paddingVertical="12dp"
+                android:paddingHorizontal="16dp"
+                android:layout_marginVertical="8dp"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:text="Email"
                 android:layout_marginTop="8dp"
                 android:paddingLeft="4dp"

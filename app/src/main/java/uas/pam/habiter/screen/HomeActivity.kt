@@ -27,11 +27,9 @@ class HomeActivity : AppCompatActivity(), CalendarAdapter.onItemClickListener {
     private lateinit var tvDateMonth: TextView
     private lateinit var ivCalendarNext: ImageView
     private lateinit var ivCalendarPrevious: ImageView
-
     private lateinit var textFullName:TextView
     private lateinit var googleSignInClient: GoogleSignInClient
     private lateinit var btnSetting: AppCompatImageButton
-
     private val firebaseAuth = FirebaseAuth.getInstance()
 
     private val sdf = SimpleDateFormat("MMMM yyyy", Locale.ENGLISH)
@@ -84,6 +82,10 @@ class HomeActivity : AppCompatActivity(), CalendarAdapter.onItemClickListener {
             startActivity(Intent(this, FormActivity::class.java))
         }
     }
+    override fun onResume() {
+        super.onResume()
+        loadUserData()
+    }
 
     private fun setUpClickListener() {
         ivCalendarNext.setOnClickListener {
@@ -112,6 +114,31 @@ class HomeActivity : AppCompatActivity(), CalendarAdapter.onItemClickListener {
         }
         recyclerView.adapter = adapter
     }
+    private fun loadUserData() {
+        val firebaseUser = FirebaseAuth.getInstance().currentUser
+        if (firebaseUser != null) {
+            val fullName = firebaseUser.displayName
+
+            if (!fullName.isNullOrBlank()) {
+                val words = fullName.split("\\s+".toRegex())
+                val firstName = words.firstOrNull()
+
+                val currentTime = Calendar.getInstance()
+                val currentHour = currentTime.get(Calendar.HOUR_OF_DAY)
+
+                val greetingEmoji = when {
+                    currentHour in 5..10 -> "🌅"
+                    currentHour in 11..15 -> "☀️"
+                    currentHour in 16..18 -> "🌇"
+                    else -> "🌙"
+                }
+                textFullName.text = "$firstName! $greetingEmoji"
+            } else {
+            }
+        }
+    }
+
+
 
     /**
      * Function to setup calendar for every month

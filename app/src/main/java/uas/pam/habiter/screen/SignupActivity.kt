@@ -14,10 +14,11 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
-import com.google.firebase.auth.userProfileChangeRequest
+import com.google.firebase.auth.UserProfileChangeRequest
 import uas.pam.habiter.R
 
 class SignupActivity : AppCompatActivity() {
+    lateinit var editName: EditText
     lateinit var editEmail: EditText
     lateinit var editPassword: EditText
     lateinit var editPasswordConf: EditText
@@ -44,6 +45,7 @@ class SignupActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_signup)
+        editName = findViewById(R.id.editTextTextfullName)
         editEmail = findViewById(R.id.editTextTextEmailAddress)
         editPassword = findViewById(R.id.editTextTextPassword)
         editPasswordConf = findViewById(R.id.editTextTextRepassword)
@@ -70,44 +72,59 @@ class SignupActivity : AppCompatActivity() {
             startActivityForResult(signInIntent, RC_SIGN_IN)
         }
         btnSignup.setOnClickListener {
-            if (editEmail.text.isNotEmpty() && editPassword.text.isNotEmpty()) {
-                if (editPassword.text.toString() == editPasswordConf.text.toString()) {
-                    //Launch Register
-                    processRegister()
+            val email = editEmail.text.toString()
+            val password = editPassword.text.toString()
+            val name = editName.text.toString().trim()
+
+            val allowedCharacters = Regex("[\\p{L}\\s]+")
+            if (name.isNotEmpty() && !allowedCharacters.matches(name)) {
+                Toast.makeText(this, "Name can only contain letters and spaces.", LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+
+            if (email.isNotEmpty() && password.isNotEmpty() && name.isNotEmpty()) {
+                if (password == editPasswordConf.text.toString()) {
+                    processRegister(email, password, name)
                 } else {
-                    Toast.makeText(this, "Password is doesn't match", LENGTH_SHORT).show()
+                    Toast.makeText(this, "Password doesn't match.", LENGTH_SHORT).show()
                 }
             } else {
-                Toast.makeText(this, "Please fill the blank form", LENGTH_SHORT).show()
+                Toast.makeText(this, "Please fill in all the required fields.", LENGTH_SHORT).show()
             }
         }
     }
 
-    private fun processRegister() {
-        val email = editEmail.text.toString()
-        val password = editPassword.text.toString()
-
+    private fun processRegister(email: String, password: String, name: String) {
         progressDialog.show()
+
         firebaseAuth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
-                    val userUpdateProfile = userProfileChangeRequest {
-                    }
-                    val user = task.result.user
-                    user!!.updateProfile(userUpdateProfile)
-                        .addOnCompleteListener {
-                            progressDialog.dismiss()
-                            startActivity(Intent(this, HomeActivity::class.java))
-                        }
-                        .addOnFailureListener { error2 ->
-                            Toast.makeText(this, error2.localizedMessage, LENGTH_SHORT).show()
+                    val user = task.result?.user
+
+                    val profileUpdates = UserProfileChangeRequest.Builder()
+                        .setDisplayName(name)
+                        .build()
+
+                    user?.updateProfile(profileUpdates)
+                        ?.addOnCompleteListener { profileTask ->
+                            if (profileTask.isSuccessful) {
+                                progressDialog.dismiss()
+                                startActivity(Intent(this, HomeActivity::class.java))
+                            } else {
+                                progressDialog.dismiss()
+                                showToast(profileTask.exception?.localizedMessage ?: "Profile update failed.")
+                            }
                         }
                 } else {
                     progressDialog.dismiss()
+                    showToast(task.exception?.localizedMessage ?: "Registration failed.")
                 }
             }
             .addOnFailureListener { error ->
-                Toast.makeText(this, error.localizedMessage, LENGTH_SHORT).show()
+                progressDialog.dismiss()
+                showToast(error.localizedMessage ?: "Registration failed.")
             }
     }
 
@@ -140,5 +157,8 @@ class SignupActivity : AppCompatActivity() {
             .addOnCompleteListener {
                 progressDialog.dismiss()
             }
+    }
+    private fun showToast(message: String) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
 }
