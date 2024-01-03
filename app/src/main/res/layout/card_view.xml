@@ -15,35 +15,71 @@
         android:orientation="vertical"
         android:paddingHorizontal="24dp"
         android:paddingVertical="20dp"
-        android:layout_marginStart="8dp">
-        <LinearLayout
-            android:id="@+id/detail_task"
-            android:layout_width="wrap_content"
+        android:layout_marginStart="4dp">
+        <com.google.android.flexbox.FlexboxLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <TextView
-                android:id="@+id/title"
-                android:layout_width="match_parent"
+            app:justifyContent="space_between"
+            app:alignItems="center">
+            <LinearLayout
+                android:id="@+id/detail_task"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Title Task"
-                android:textColor="#FF5722"
-                android:textSize="16dp"
-                android:textStyle="bold"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
-            <TextView
-                android:id="@+id/label"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Go For It!"
-                android:textColor="#a2a285"
-                app:layout_constraintTop_toBottomOf="@+id/title" />
-        </LinearLayout>
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Title Task"
+                    android:textColor="#FF5722"
+                    android:textSize="16dp"
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toTopOf="parent" />
 
+                <TextView
+                    android:id="@+id/label"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Go For It!"
+                    android:textColor="#a2a285"
+                    app:layout_constraintTop_toBottomOf="@+id/title" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_delete"
+                    android:backgroundTint="@color/transparent"
+                    app:tint="#FF5722"
+                    android:layout_gravity="center"/>
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_check"
+                    android:background="@drawable/bg_circle"
+                    android:backgroundTint="@color/task_green"
+                    app:tint="@color/darkgray"
+                    android:layout_gravity="center"
+                    android:padding="4dp"/>
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_undo"
+                    android:background="@drawable/bg_circle"
+                    android:backgroundTint="@color/task_blue"
+                    app:tint="@color/darkgray"
+                    android:layout_gravity="center"
+                    android:padding="4dp"
+                    android:visibility="gone"/>
+            </LinearLayout>
+
+        </com.google.android.flexbox.FlexboxLayout>
         <com.google.android.material.progressindicator.LinearProgressIndicator
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

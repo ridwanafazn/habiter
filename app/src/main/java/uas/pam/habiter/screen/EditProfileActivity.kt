@@ -14,8 +14,8 @@ import uas.pam.habiter.R
 
 class EditProfileActivity : AppCompatActivity() {
     private lateinit var btnCloseEditProfile: AppCompatImageButton
-    private lateinit var btnUpdatePhoto: ImageButton
-    private lateinit var btnDeletePhoto: ImageButton
+//    private lateinit var btnUpdatePhoto: ImageButton
+//    private lateinit var btnDeletePhoto: ImageButton
     private lateinit var btnSave: AppCompatButton
     private lateinit var inputUsername: EditText
 
@@ -26,8 +26,8 @@ class EditProfileActivity : AppCompatActivity() {
         setContentView(R.layout.activity_edit_profile)
 
         btnCloseEditProfile = findViewById(R.id.btn_close)
-        btnUpdatePhoto = findViewById(R.id.update_photo)
-        btnDeletePhoto = findViewById(R.id.delete_photo)
+//        btnUpdatePhoto = findViewById(R.id.update_photo)
+//        btnDeletePhoto = findViewById(R.id.delete_photo)
         btnSave = findViewById(R.id.button_signin)
         inputUsername = findViewById(R.id.input_username)
         currentDisplayName = FirebaseAuth.getInstance().currentUser?.displayName

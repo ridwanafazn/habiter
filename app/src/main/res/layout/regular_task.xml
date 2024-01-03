@@ -65,87 +65,86 @@
         android:textColor="@color/white" />
 
     <com.google.android.flexbox.FlexboxLayout
+        android:id="@+id/input_custom_repeat"
         app:justifyContent="space_around"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginVertical="8dp">
+<!--        <CheckedTextView-->
+<!--            android:layout_width="40dp"-->
+<!--            android:layout_height="40dp"-->
+<!--            android:layout_marginVertical="4dp"-->
+<!--            android:background="@drawable/bg_circle"-->
+<!--            android:backgroundTint="@color/gray"-->
+<!--            android:gravity="center"-->
+<!--            android:text="S"-->
+<!--            android:textAlignment="center"-->
+<!--            android:textColor="@color/white" />-->
+<!--        <CheckedTextView-->
+<!--            android:layout_width="40dp"-->
+<!--            android:layout_height="40dp"-->
+<!--            android:layout_marginVertical="4dp"-->
+<!--            android:background="@drawable/bg_circle"-->
+<!--            android:backgroundTint="@color/gray"-->
+<!--            android:gravity="center"-->
+<!--            android:text="M"-->
+<!--            android:textAlignment="center"-->
+<!--            android:textColor="@color/white" />-->
 
-        <CheckedTextView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginVertical="4dp"
-            android:background="@drawable/bg_circle"
-            android:backgroundTint="@color/gray"
-            android:gravity="center"
-            android:text="S"
-            android:textAlignment="center"
-            android:textColor="@color/white" />
+<!--        <CheckedTextView-->
+<!--            android:layout_width="40dp"-->
+<!--            android:layout_height="40dp"-->
+<!--            android:layout_marginVertical="4dp"-->
+<!--            android:background="@drawable/bg_circle"-->
+<!--            android:backgroundTint="@color/gray"-->
+<!--            android:gravity="center"-->
+<!--            android:text="T"-->
+<!--            android:textAlignment="center"-->
+<!--            android:textColor="@color/white" />-->
 
-        <CheckedTextView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginVertical="4dp"
-            android:background="@drawable/bg_circle"
-            android:backgroundTint="@color/gray"
-            android:gravity="center"
-            android:text="M"
-            android:textAlignment="center"
-            android:textColor="@color/white" />
+<!--        <CheckedTextView-->
+<!--            android:layout_width="40dp"-->
+<!--            android:layout_height="40dp"-->
+<!--            android:layout_marginVertical="4dp"-->
+<!--            android:background="@drawable/bg_circle"-->
+<!--            android:backgroundTint="@color/gray"-->
+<!--            android:gravity="center"-->
+<!--            android:text="W"-->
+<!--            android:textAlignment="center"-->
+<!--            android:textColor="@color/white" />-->
 
-        <CheckedTextView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginVertical="4dp"
-            android:background="@drawable/bg_circle"
-            android:backgroundTint="@color/gray"
-            android:gravity="center"
-            android:text="T"
-            android:textAlignment="center"
-            android:textColor="@color/white" />
+<!--        <CheckedTextView-->
+<!--            android:layout_width="40dp"-->
+<!--            android:layout_height="40dp"-->
+<!--            android:layout_marginVertical="4dp"-->
+<!--            android:background="@drawable/bg_circle"-->
+<!--            android:backgroundTint="@color/gray"-->
+<!--            android:gravity="center"-->
+<!--            android:text="T"-->
+<!--            android:textAlignment="center"-->
+<!--            android:textColor="@color/white" />-->
 
-        <CheckedTextView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginVertical="4dp"
-            android:background="@drawable/bg_circle"
-            android:backgroundTint="@color/gray"
-            android:gravity="center"
-            android:text="W"
-            android:textAlignment="center"
-            android:textColor="@color/white" />
+<!--        <CheckedTextView-->
+<!--            android:layout_width="40dp"-->
+<!--            android:layout_height="40dp"-->
+<!--            android:layout_marginVertical="4dp"-->
+<!--            android:background="@drawable/bg_circle"-->
+<!--            android:backgroundTint="@color/gray"-->
+<!--            android:gravity="center"-->
+<!--            android:text="F"-->
+<!--            android:textAlignment="center"-->
+<!--            android:textColor="@color/white" />-->
 
-        <CheckedTextView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginVertical="4dp"
-            android:background="@drawable/bg_circle"
-            android:backgroundTint="@color/gray"
-            android:gravity="center"
-            android:text="T"
-            android:textAlignment="center"
-            android:textColor="@color/white" />
-
-        <CheckedTextView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginVertical="4dp"
-            android:background="@drawable/bg_circle"
-            android:backgroundTint="@color/gray"
-            android:gravity="center"
-            android:text="F"
-            android:textAlignment="center"
-            android:textColor="@color/white" />
-
-        <CheckedTextView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginVertical="4dp"
-            android:background="@drawable/bg_circle"
-            android:backgroundTint="@color/gray"
-            android:gravity="center"
-            android:text="S"
-            android:textAlignment="center"
-            android:textColor="@color/white" />
+<!--        <CheckedTextView-->
+<!--            android:layout_width="40dp"-->
+<!--            android:layout_height="40dp"-->
+<!--            android:layout_marginVertical="4dp"-->
+<!--            android:background="@drawable/bg_circle"-->
+<!--            android:backgroundTint="@color/gray"-->
+<!--            android:gravity="center"-->
+<!--            android:text="S"-->
+<!--            android:textAlignment="center"-->
+<!--            android:textColor="@color/white" />-->
 
     </com.google.android.flexbox.FlexboxLayout>
     <CheckBox

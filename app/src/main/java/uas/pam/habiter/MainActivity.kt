@@ -8,6 +8,7 @@ import android.view.Menu
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.ui.AppBarConfiguration
+import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.FirebaseAuth
 import uas.pam.habiter.databinding.ActivityMainBinding
 import uas.pam.habiter.screen.HomeActivity
@@ -25,6 +26,8 @@ class MainActivity() : AppCompatActivity(), Parcelable {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        FirebaseApp.initializeApp(this)
 
         val firebaseAuth = FirebaseAuth.getInstance()
         if (firebaseAuth.currentUser != null) {

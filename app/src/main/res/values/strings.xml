@@ -15,4 +15,11 @@
     <string name="remember_me">Remember Me</string>
     <string name="forgot_password">Forgot Password</string>
     <string name="email_label">Email</string>
+    <string name="default_web_client_id">129213189117-766d2s0onubev128pl4lmdf47629r369.apps.googleusercontent.com</string>
+    <string name="oneTask_button">One Time Task</string>
+    <string name="regularTask_button">Regular Task</string>
+    <string name="label_name_of_habit">Name of Habit</string>
+    <string name="label_custom_color">Custom Color</string>
+    <string name="save_button">Save</string>
+
 </resources>
