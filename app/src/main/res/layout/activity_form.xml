@@ -19,8 +19,8 @@
             android:id="@+id/btnback"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:layout_marginRight="12dp"
             android:layout_marginTop="12dp"
+            android:layout_marginRight="12dp"
             android:backgroundTint="@color/transparent"
             android:src="@drawable/ic_close"
             app:layout_constraintRight_toRightOf="parent"
@@ -54,7 +54,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/bg_button"
-            android:backgroundTint="@color/darkgray"
+            android:backgroundTint="@color/gray"
             android:checked="true"
             android:ems="9"
             android:paddingVertical="8dp"
@@ -67,7 +67,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/bg_button"
-            android:backgroundTint="@color/darkgray"
+            android:backgroundTint="@color/gray"
             android:ems="9"
             android:paddingVertical="8dp"
             android:text="@string/oneTask_button"
@@ -177,11 +177,102 @@
 
 
                 <com.google.android.flexbox.FlexboxLayout
-                    android:id="@+id/container_custom_repeat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginVertical="12dp"
-                    app:justifyContent="space_around" />
+                    app:justifyContent="space_around">
+
+                    <CheckedTextView
+                        android:id="@+id/sunday"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginVertical="4dp"
+                        android:background="@drawable/bg_circle"
+                        android:textStyle="bold"
+                        android:backgroundTint="@color/orange"
+                        android:gravity="center"
+                        android:text="S"
+                        android:textAlignment="center"
+                        android:textColor="@color/white" />
+
+                    <CheckedTextView
+                        android:id="@+id/monday"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginVertical="4dp"
+                        android:background="@drawable/bg_circle"
+                        android:textStyle="bold"
+                        android:backgroundTint="@color/orange"
+                        android:gravity="center"
+                        android:text="M"
+                        android:textAlignment="center"
+                        android:textColor="@color/white" />
+
+                    <CheckedTextView
+                        android:id="@+id/tuesday"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginVertical="4dp"
+                        android:background="@drawable/bg_circle"
+                        android:textStyle="bold"
+                        android:backgroundTint="@color/orange"
+                        android:gravity="center"
+                        android:text="T"
+                        android:textAlignment="center"
+                        android:textColor="@color/white" />
+
+                    <CheckedTextView
+                        android:id="@+id/wednesday"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginVertical="4dp"
+                        android:background="@drawable/bg_circle"
+                        android:textStyle="bold"
+                        android:backgroundTint="@color/orange"
+                        android:gravity="center"
+                        android:text="W"
+                        android:textAlignment="center"
+                        android:textColor="@color/white" />
+
+                    <CheckedTextView
+                        android:id="@+id/thursday"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginVertical="4dp"
+                        android:background="@drawable/bg_circle"
+                        android:textStyle="bold"
+                        android:backgroundTint="@color/orange"
+                        android:gravity="center"
+                        android:text="T"
+                        android:textAlignment="center"
+                        android:textColor="@color/white" />
+
+                    <CheckedTextView
+                        android:id="@+id/friday"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginVertical="4dp"
+                        android:background="@drawable/bg_circle"
+                        android:textStyle="bold"
+                        android:backgroundTint="@color/orange"
+                        android:gravity="center"
+                        android:text="F"
+                        android:textAlignment="center"
+                        android:textColor="@color/white" />
+
+                    <CheckedTextView
+                        android:id="@+id/saturday"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginVertical="4dp"
+                        android:background="@drawable/bg_circle"
+                        android:textStyle="bold"
+                        android:backgroundTint="@color/orange"
+                        android:gravity="center"
+                        android:text="S"
+                        android:textAlignment="center"
+                        android:textColor="@color/white" />
+                </com.google.android.flexbox.FlexboxLayout>
 
                 <CheckBox
                     android:id="@+id/checkbox_repeatAllDays"
@@ -210,8 +301,7 @@
                     android:textColor="@color/white"
                     android:textColorHint="@color/gray"
                     android:textSize="20sp"
-                    android:visibility="gone"
-                    />
+                    android:visibility="gone" />
 
             </LinearLayout>
 
@@ -220,65 +310,138 @@
                 android:layout_height="wrap_content"
                 app:dividerColor="#2D2D33" />
 
-<!--            <LinearLayout-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:orientation="vertical"-->
-<!--                android:paddingHorizontal="24dp"-->
-<!--                android:paddingVertical="12dp">-->
+            <!--            <LinearLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:orientation="vertical"-->
+            <!--                android:paddingHorizontal="24dp"-->
+            <!--                android:paddingVertical="12dp">-->
 
-<!--                <CheckBox-->
-<!--                    android:id="@+id/checkbox_setGoal"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:text="Set goal"-->
-<!--                    android:textColor="@color/white" />-->
+            <!--                <CheckBox-->
+            <!--                    android:id="@+id/checkbox_setGoal"-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:text="Set goal"-->
+            <!--                    android:textColor="@color/white" />-->
 
-<!--                <com.google.android.flexbox.FlexboxLayout-->
-<!--                    android:id="@+id/input_goal_container"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:paddingHorizontal="24dp"-->
-<!--                    android:paddingVertical="12dp"-->
-<!--                    app:alignItems="center"-->
-<!--                    app:justifyContent="center"-->
-<!--                    android:visibility="gone">-->
+            <!--                <com.google.android.flexbox.FlexboxLayout-->
+            <!--                    android:id="@+id/input_goal_container"-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:paddingHorizontal="24dp"-->
+            <!--                    android:paddingVertical="12dp"-->
+            <!--                    app:alignItems="center"-->
+            <!--                    app:justifyContent="center"-->
+            <!--                    android:visibility="gone">-->
 
-<!--                    <TextView-->
-<!--                        android:layout_width="wrap_content"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:text="Repeat"-->
-<!--                        android:textColor="@color/white" />-->
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:text="Repeat"-->
+            <!--                        android:textColor="@color/white" />-->
 
-<!--                    <EditText-->
-<!--                        android:id="@+id/input_goal"-->
-<!--                        android:layout_width="wrap_content"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:layout_gravity="center"-->
-<!--                        android:layout_marginHorizontal="12dp"-->
-<!--                        android:layout_marginVertical="8dp"-->
-<!--                        android:backgroundTint="@color/white"-->
-<!--                        android:ems="3"-->
-<!--                        android:inputType="number"-->
-<!--                        android:paddingHorizontal="16dp"-->
-<!--                        android:paddingVertical="12dp"-->
-<!--                        android:textColor="@color/white"-->
-<!--                        android:textColorHint="@color/gray"-->
-<!--                        android:textSize="20sp" />-->
+            <!--                    <EditText-->
+            <!--                        android:id="@+id/input_goal"-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_gravity="center"-->
+            <!--                        android:layout_marginHorizontal="12dp"-->
+            <!--                        android:layout_marginVertical="8dp"-->
+            <!--                        android:backgroundTint="@color/white"-->
+            <!--                        android:ems="3"-->
+            <!--                        android:inputType="number"-->
+            <!--                        android:paddingHorizontal="16dp"-->
+            <!--                        android:paddingVertical="12dp"-->
+            <!--                        android:textColor="@color/white"-->
+            <!--                        android:textColorHint="@color/gray"-->
+            <!--                        android:textSize="20sp" />-->
 
-<!--                    <TextView-->
-<!--                        android:layout_width="wrap_content"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:text="times in one day"-->
-<!--                        android:textColor="@color/white" />-->
-<!--                </com.google.android.flexbox.FlexboxLayout>-->
-<!--            </LinearLayout>-->
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:text="times in one day"-->
+            <!--                        android:textColor="@color/white" />-->
+            <!--                </com.google.android.flexbox.FlexboxLayout>-->
+            <!--            </LinearLayout>-->
 
             <com.google.android.material.divider.MaterialDivider
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:dividerColor="#2D2D33" />
 
+
+            <!--            <LinearLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:orientation="vertical"-->
+            <!--                android:paddingHorizontal="24dp"-->
+            <!--                android:paddingVertical="12dp">-->
+
+            <!--                <TextView-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:layout_marginTop="8dp"-->
+            <!--                    android:paddingLeft="4dp"-->
+            <!--                    android:text="@string/label_custom_color"-->
+            <!--                    android:textColor="@color/white" />-->
+
+            <!--                <com.google.android.flexbox.FlexboxLayout-->
+            <!--                    android:id="@+id/container_custom_color"-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:layout_marginVertical="8dp"-->
+            <!--                    app:justifyContent="space_around"-->
+            <!--                    app:alignItems="center">-->
+
+            <!--                    <CheckedTextView-->
+            <!--                        android:id="@+id/custom_task_blue"-->
+            <!--                        android:layout_width="30dp"-->
+            <!--                        android:layout_height="30dp"-->
+            <!--                        android:layout_marginVertical="4dp"-->
+            <!--                        android:background="@drawable/bg_circle"-->
+            <!--                        android:backgroundTint="@color/task_blue" />-->
+
+            <!--                    <CheckedTextView-->
+            <!--                        android:id="@+id/custom_task_green"-->
+            <!--                        android:layout_width="30dp"-->
+            <!--                        android:layout_height="30dp"-->
+            <!--                        android:layout_marginVertical="4dp"-->
+            <!--                        android:background="@drawable/bg_circle"-->
+            <!--                        android:backgroundTint="@color/task_green" />-->
+
+            <!--                    <CheckedTextView-->
+            <!--                        android:id="@+id/custom_task_yellow"-->
+            <!--                        android:layout_width="30dp"-->
+            <!--                        android:layout_height="30dp"-->
+            <!--                        android:layout_marginVertical="4dp"-->
+            <!--                        android:background="@drawable/bg_circle"-->
+            <!--                        android:backgroundTint="@color/task_yellow" />-->
+
+            <!--                    <CheckedTextView-->
+            <!--                        android:id="@+id/custom_task_orange"-->
+            <!--                        android:layout_width="30dp"-->
+            <!--                        android:layout_height="30dp"-->
+            <!--                        android:layout_marginVertical="4dp"-->
+            <!--                        android:background="@drawable/bg_circle"-->
+            <!--                        android:backgroundTint="@color/task_orange" />-->
+
+            <!--                    <CheckedTextView-->
+            <!--                        android:id="@+id/custom_task_pink"-->
+            <!--                        android:layout_width="30dp"-->
+            <!--                        android:layout_height="30dp"-->
+            <!--                        android:layout_marginVertical="4dp"-->
+            <!--                        android:background="@drawable/bg_circle"-->
+            <!--                        android:backgroundTint="@color/task_pink" />-->
+
+            <!--                    <CheckedTextView-->
+            <!--                        android:id="@+id/custom_task_purple"-->
+            <!--                        android:layout_width="30dp"-->
+            <!--                        android:layout_height="30dp"-->
+            <!--                        android:layout_marginVertical="4dp"-->
+            <!--                        android:background="@drawable/bg_circle"-->
+            <!--                        android:backgroundTint="@color/task_purple" />-->
+            <!--                </com.google.android.flexbox.FlexboxLayout>-->
+            <!--            </LinearLayout>-->
         </LinearLayout>
     </ScrollView>
 
@@ -297,7 +460,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="24dp"
             android:background="@drawable/bg_button"
-            android:backgroundTint="#FF7966"
+            android:backgroundTint="@color/orange"
             android:text="@string/save_button"
             android:textAllCaps="false"
             android:textColor="@color/white"

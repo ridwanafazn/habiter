@@ -3,9 +3,12 @@ package uas.pam.habiter.screen
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.util.Log.d
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.widget.AppCompatImageButton
 import androidx.recyclerview.widget.LinearSnapHelper
 import androidx.recyclerview.widget.RecyclerView
@@ -18,11 +21,19 @@ import kotlin.collections.ArrayList
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 import uas.pam.habiter.R
+import uas.pam.habiter.api.ApiService
+import uas.pam.habiter.network.RetrofitInterface
 import uas.pam.habiter.ui.CalendarAdapter
 import uas.pam.habiter.ui.CalendarDateModel
 
 class HomeActivity : AppCompatActivity(), CalendarAdapter.onItemClickListener {
+    private var retrofit: Retrofit? = null
+    private var retrofitInterface: ApiService? = null
+    private val BASE_URL = "https://habiter-api.vercel.app"
+
     private lateinit var recyclerView: RecyclerView
     private lateinit var tvDateMonth: TextView
     private lateinit var ivCalendarNext: ImageView
@@ -43,9 +54,23 @@ class HomeActivity : AppCompatActivity(), CalendarAdapter.onItemClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
+        try {
+            retrofit = Retrofit.Builder()
+                .baseUrl(BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build()
+
+            retrofitInterface = retrofit!!.create(ApiService::class.java)
+            Toast.makeText(this, "Retrofit initialization success", Toast.LENGTH_LONG).show()
+
+        } catch (e: Exception) {
+            e.printStackTrace()
+            Log.d("cobaba", "$e")
+            // Handle the initialization failure here
+            Toast.makeText(this, "Retrofit initialization failed", Toast.LENGTH_LONG).show()
+        }
+
         btnSetting = findViewById<AppCompatImageButton>(R.id.button_setting)
-
-
 
         textFullName = findViewById(R.id.fullName)
         tvDateMonth = findViewById(R.id.text_date_month)
