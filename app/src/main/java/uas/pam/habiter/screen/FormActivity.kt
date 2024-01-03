@@ -34,12 +34,12 @@ class FormActivity : AppCompatActivity() {
     private lateinit var layoutInputGoal: FlexboxLayout
 
     private lateinit var checkBoxEndDate: CheckBox
-    private lateinit var checkBoxSetGoal: CheckBox
+//    private lateinit var checkBoxSetGoal: CheckBox
     private lateinit var checkBoxRepeatAllDay: CheckBox
 
     private lateinit var inputEndDate: EditText
     private lateinit var inputDate: EditText
-    private lateinit var inputGoal: EditText
+//    private lateinit var inputGoal: EditText
     private lateinit var inputNameHabit: EditText
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -66,16 +66,13 @@ class FormActivity : AppCompatActivity() {
         inputOneTaskMenu = findViewById(R.id.input_oneTimeTask)
         inputRegularTaskMenu = findViewById(R.id.input_regularTask)
         layoutRepeatDays = findViewById(R.id.container_custom_repeat)
-        layoutInputGoal = findViewById(R.id.input_goal_container)
 
         checkBoxEndDate = findViewById(R.id.checkbox_endDate)
-        checkBoxSetGoal = findViewById(R.id.checkbox_setGoal)
         checkBoxRepeatAllDay = findViewById(R.id.checkbox_repeatAllDays)
 
         inputNameHabit = findViewById(R.id.input_name_habit)
         inputEndDate = findViewById(R.id.input_endDate)
         inputDate = findViewById(R.id.input_date)
-        inputGoal = findViewById(R.id.input_goal)
 
 
         btnClose.setOnClickListener {
@@ -85,26 +82,18 @@ class FormActivity : AppCompatActivity() {
 
         btnSubmit.setOnClickListener {
             val isOneTaskChecked = btnOneTaskMenu.isChecked
-            val isSetGoalChecked = checkBoxSetGoal.isChecked
+//            val isSetGoalChecked = checkBoxSetGoal.isChecked
             val isEndDateChecked = checkBoxEndDate.isChecked
 
             val habitName = inputNameHabit.text.toString()
             val selectedDate = inputDate.text.toString()
-            val goalValue = inputGoal.text.toString()
+//            val goalValue = inputGoal.text.toString()
             val endDateValue = inputEndDate.text.toString()
 
-            if (habitName.isBlank() && (isOneTaskChecked && selectedDate.isBlank()) && (isSetGoalChecked && (goalValue.isBlank() && (isEndDateChecked && endDateValue.isBlank())))) {
+            if (habitName.isBlank() && (isOneTaskChecked && selectedDate.isBlank()) && (isEndDateChecked && endDateValue.isBlank())) {
                 Toast.makeText(this, "Please fill out all required fields", Toast.LENGTH_SHORT).show()
             } else {
-                val habit = Task(
-                    userId = "",
-                    title = habitName,
-                    type = if (isOneTaskChecked) "onetime" else "regular",
-                    startDate = if (isOneTaskChecked) selectedDate else "",
-                    endDate = if (isEndDateChecked) endDateValue else "",
-                    color = "",
-                    status = "none"
-                )
+
             }
         }
 
@@ -117,14 +106,14 @@ class FormActivity : AppCompatActivity() {
             }
         }
 
-        checkBoxSetGoal.setOnClickListener { view ->
-            val isChecked = (view as CheckBox).isChecked
-            if (view.isChecked) {
-                layoutInputGoal.visibility = View.VISIBLE
-            } else {
-                layoutInputGoal.visibility = View.GONE
-            }
-        }
+//        checkBoxSetGoal.setOnClickListener { view ->
+//            val isChecked = (view as CheckBox).isChecked
+//            if (view.isChecked) {
+//                layoutInputGoal.visibility = View.VISIBLE
+//            } else {
+//                layoutInputGoal.visibility = View.GONE
+//            }
+//        }
 
         fun updateStyles(checkedTextView: CheckedTextView) {
             if (checkedTextView.isChecked) {
