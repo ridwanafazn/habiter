@@ -18,18 +18,18 @@ import com.google.firebase.auth.UserProfileChangeRequest
 import uas.pam.habiter.R
 
 class SignupActivity : AppCompatActivity() {
-    lateinit var editName: EditText
-    lateinit var editEmail: EditText
-    lateinit var editPassword: EditText
-    lateinit var editPasswordConf: EditText
-    lateinit var btnSignup: Button
-    lateinit var btnSignin: Button
-    lateinit var btnGoogle: Button
-    lateinit var progressDialog: ProgressDialog
-    lateinit var googleSignInClient: GoogleSignInClient
+    private lateinit var editName: EditText
+    private lateinit var editEmail: EditText
+    private lateinit var editPassword: EditText
+    private lateinit var editPasswordConf: EditText
+    private lateinit var btnSignup: Button
+    private lateinit var btnSignin: Button
+    private lateinit var btnGoogle: Button
+    private lateinit var progressDialog: ProgressDialog
+    private lateinit var googleSignInClient: GoogleSignInClient
 
 
-    var firebaseAuth = FirebaseAuth.getInstance()
+    private var firebaseAuth = FirebaseAuth.getInstance()
 
     companion object {
         private const val RC_SIGN_IN = 999
@@ -131,10 +131,8 @@ class SignupActivity : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == RC_SIGN_IN) {
-            //HANDLE LOGIN PROCESS GOOGLE
             val task = GoogleSignIn.getSignedInAccountFromIntent(data)
             try {
-                //berhasil
                 val account = task.getResult(ApiException::class.java)!!
                 firebaseAuthWithGoogle(account.idToken!!)
             } catch (e: ApiException) {

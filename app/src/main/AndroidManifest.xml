@@ -12,6 +12,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Habiter"
         tools:targetApi="31">
+        <!--<activity
+            android:name=".screen.EditProfileActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data
+                    android:scheme="https"
+                    android:host="habiter-habitreminder.firebaseapp.com"
+                    android:pathPrefix="/__/auth/action?mode=deleteAccountWithApp" />
+            </intent-filter>
+        </activity>-->
         <activity
             android:name=".screen.EditProfileActivity"
             android:exported="false" />
@@ -21,21 +34,6 @@
         <activity
             android:name=".screen.SearchEmailActivity"
             android:exported="false" />
-
-        <activity
-            android:name=".ResetPasswordActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
-                <data
-                    android:scheme="https"
-                    android:host="habiter-habitreminder.firebaseapp.com"
-                    android:pathPrefix="/__/auth/action" />
-            </intent-filter>
-        </activity>
-
 
 
         <activity

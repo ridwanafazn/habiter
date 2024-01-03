@@ -114,6 +114,17 @@
                 android:textSize="20sp" />
         </LinearLayout>
     </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingHorizontal="24dp"
+        android:paddingTop="50dp"
+        android:paddingBottom="25dp"
+        app:layout_constraintBottom_toBottomOf="parent">
+
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button_signin"
         android:layout_width="match_parent"
@@ -127,5 +138,22 @@
         android:textColor="@color/white"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button_delete_my_account"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:layout_marginHorizontal="24dp"
+            android:background="@drawable/bg_button"
+            android:backgroundTint="#FF0000"
+            android:text="Delete My Account"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+</LinearLayout>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
