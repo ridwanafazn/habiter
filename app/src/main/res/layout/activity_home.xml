@@ -5,160 +5,102 @@
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".screen.HomeActivity"
     android:background="#1C1C23"
     android:fitsSystemWindows="true"
+    tools:context=".screen.HomeActivity"
     tools:openDrawer="start">
 
-  <androidx.constraintlayout.widget.ConstraintLayout
-      android:id="@+id/hero"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:background="@drawable/bg_hero"
-      android:paddingBottom="24dp"
-      android:orientation="vertical"
-      app:layout_constraintTop_toTopOf="parent">
-
-    <androidx.appcompat.widget.AppCompatImageButton
-        android:id="@+id/button_setting"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginEnd="12dp"
-        android:layout_marginTop="12dp"
-        android:backgroundTint="@color/transparent"
-        android:src="@drawable/ic_settings"
+    <LinearLayout
+        android:id="@+id/hero"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_hero"
+        android:paddingHorizontal="@dimen/header_mh"
+        android:paddingVertical="@dimen/header_mv"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintRight_toRightOf="parent"
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/title"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginTop="12dp"
-        android:gravity="center"
-        android:text="@string/dashboard"
-        android:textColor="#a2a285"
-        android:textSize="20sp"
-        app:layout_constraintTop_toTopOf="parent" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/profil"
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/button_setting"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:backgroundTint="@color/transparent"
+                android:contentDescription="@string/cd_setting"
+                android:src="@drawable/ic_settings"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:gravity="center"
+                android:letterSpacing="0.1"
+                android:text="@string/dashboard"
+                android:textColor="@color/white"
+                android:textSize="@dimen/h2"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <LinearLayout
+            android:id="@+id/profil"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginVertical="32dp"
+            android:orientation="vertical"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/title">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/hai"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/fullName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/name_example"
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/list_task_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingHorizontal="24dp"
-        android:paddingTop="50dp"
-        android:paddingBottom="25dp"
-        app:layout_constraintTop_toBottomOf="@+id/title">
+        android:paddingVertical="12dp"
+        app:layout_constraintTop_toBottomOf="@+id/hero" />
 
-      <LinearLayout
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:orientation="vertical"
-          app:layout_constraintBottom_toBottomOf="parent"
-          app:layout_constraintLeft_toLeftOf="parent"
-          app:layout_constraintTop_toTopOf="parent">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/hai"
-            android:textColor="@color/white"
-            android:textSize="20sp" />
-        <TextView
-            android:id="@+id/fullName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/name_example"
-            android:textColor="@color/white"
-            android:textSize="24sp"
-            android:textStyle="bold" />
-      </LinearLayout>
-      <ImageView
-          android:layout_width="70dp"
-          android:layout_height="70dp"
-          android:src="@drawable/avatar_1"
-          app:layout_constraintBottom_toBottomOf="parent"
-          app:layout_constraintRight_toRightOf="parent"
-          app:layout_constraintTop_toTopOf="parent"
-          android:contentDescription="@string/avatar" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_add"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/profil"
-        >
-
-      <ImageView
-          android:id="@+id/iv_calendar_previous"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:padding="20dp"
-          android:src="@drawable/ic_left_arrow"
-          app:layout_constraintEnd_toStartOf="@+id/iv_calendar_next"
-          app:layout_constraintTop_toTopOf="parent"
-          app:tint="@color/white"
-          android:contentDescription="@string/todo" />
-
-      <ImageView
-          android:id="@+id/iv_calendar_next"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:padding="20dp"
-          android:src="@drawable/ic_right_arrow"
-          app:layout_constraintEnd_toEndOf="parent"
-          app:layout_constraintTop_toTopOf="parent"
-          app:tint="@color/white"
-          android:contentDescription="@string/todo" />
-
-      <TextView
-          android:id="@+id/text_date_month"
-          style="@style/TextAppearance.MaterialComponents.Subtitle2"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_marginStart="24dp"
-          android:textSize="18sp"
-          android:textColor="@color/white"
-          app:layout_constraintBottom_toBottomOf="@id/iv_calendar_next"
-          app:layout_constraintStart_toStartOf="parent"
-          app:layout_constraintTop_toTopOf="@id/iv_calendar_next"
-          tools:text="December 2020" />
-
-      <androidx.recyclerview.widget.RecyclerView
-          android:id="@+id/recyclerView"
-          android:layout_width="0dp"
-          android:layout_height="wrap_content"
-          android:layout_marginVertical="12dp"
-          android:orientation="horizontal"
-          tools:listitem="@layout/date_layout"
-          app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-          app:layout_constraintLeft_toLeftOf="parent"
-          app:layout_constraintRight_toRightOf="parent"
-          app:layout_constraintTop_toBottomOf="@id/text_date_month" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-  </androidx.constraintlayout.widget.ConstraintLayout>
-
-  <ScrollView
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:layout_marginVertical="12sp"
-      app:layout_constraintTop_toBottomOf="@+id/hero">
-    <include layout="@layout/card_view" />
-  </ScrollView>
-
-  <com.google.android.material.floatingactionbutton.FloatingActionButton
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:id="@+id/fab_add"
-      android:layout_marginEnd="12dp"
-      android:layout_marginBottom="12dp"
-      android:backgroundTint="#FF7966"
-      android:clickable="true"
-      android:elevation="6dp"
-      android:src="@drawable/ic_add"
-      android:tint="@android:color/white"
-      app:fabSize="normal"
-      app:layout_constraintBottom_toBottomOf="parent"
-      app:layout_constraintRight_toRightOf="parent"
-      android:focusable="true"
-      android:contentDescription="@string/add_fab" />
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="12dp"
+        android:backgroundTint="@color/orange"
+        android:clickable="true"
+        android:contentDescription="@string/cd_add_task"
+        android:elevation="6dp"
+        android:focusable="true"
+        android:src="@drawable/ic_add"
+        android:tint="@android:color/white"
+        app:fabSize="normal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

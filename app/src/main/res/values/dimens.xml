@@ -7,4 +7,21 @@
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="checked_text_size">40dp</dimen>
     <dimen name="checked_color_size">20dp</dimen>
+    <dimen name="h5">18sp</dimen>
+    <dimen name="h6">16sp</dimen>
+    <dimen name="header_mv">12dp</dimen>
+    <dimen name="header_mh">12dp</dimen>
+    <dimen name="h2">24sp</dimen>
+    <dimen name="body_mh">24dp</dimen>
+    <dimen name="body_mv">24dp</dimen>
+    <dimen name="profile_dimension">120dp</dimen>
+    <dimen name="h3">20sp</dimen>
+    <dimen name="h4">18sp</dimen>
+    <dimen name="label_text_ph">8dp</dimen>
+    <dimen name="btn_drawable_p">12dp</dimen>
+    <dimen name="btn_p">20dp</dimen>
+    <dimen name="btn_text_size">18sp</dimen>
+    <dimen name="hero_mb">60dp</dimen>
+    <dimen name="input_ph">16dp</dimen>
+    <dimen name="input_p">16dp</dimen>
 </resources>

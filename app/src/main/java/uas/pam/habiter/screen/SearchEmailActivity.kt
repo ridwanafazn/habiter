@@ -19,9 +19,9 @@ class SearchEmailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_forgot_password_searchemail)
 
-        btnCloseForgotPassword = findViewById(R.id.button_close_forgot_password)
+        btnCloseForgotPassword = findViewById(R.id.button_close_setting)
         btnSendLink = findViewById(R.id.button_send_link_to_email)
-        editTextEmail = findViewById(R.id.editTextTextEmailAddress)
+        editTextEmail = findViewById(R.id.input_email)
         firebaseAuth = FirebaseAuth.getInstance()
 
         btnCloseForgotPassword.setOnClickListener {

@@ -9,7 +9,6 @@ import retrofit2.http.PUT
 import retrofit2.http.Path
 import retrofit2.http.Query
 import uas.pam.habiter.model.DeleteResponse
-import uas.pam.habiter.model.ProgressData
 import uas.pam.habiter.model.Task
 
 interface ApiService {
@@ -22,7 +21,7 @@ interface ApiService {
     fun getTasksByDate(
         @Path("userId") userId: String,
         @Query("date") date: String? = null
-    ): List<Task>
+    ): Call<List<Task>>
 
     // GET a specific task for a specific user
     @GET("/user/{userId}/task/{id}")
@@ -39,17 +38,17 @@ interface ApiService {
     ): Call<Task>
 
     // PUT update progress for a task
-    @PUT("/user/{userId}/task/{id}/update-progress")
-    fun updateProgress(
+    @PUT("/user/{userId}/task/{id}")
+    fun updateTask(
         @Path("userId") userId: String,
         @Path("id") taskId: String,
-        @Body progressData: ProgressData
-    ): Task
+        @Body task: Task
+    ): Call<Task>
 
     // DELETE a task
     @DELETE("/user/{userId}/task/{id}")
     fun deleteTask(
         @Path("userId") userId: String,
         @Path("id") taskId: String
-    ): DeleteResponse
+    ): Call<DeleteResponse>
 }

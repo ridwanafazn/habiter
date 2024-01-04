@@ -12,467 +12,134 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/bg_hero"
-        android:paddingBottom="10dp"
+        android:paddingHorizontal="@dimen/header_mh"
+        android:paddingVertical="@dimen/header_mv"
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.appcompat.widget.AppCompatImageButton
-            android:id="@+id/btnback"
+            android:id="@+id/button_close"
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:layout_marginTop="12dp"
-            android:layout_marginEnd="12dp"
             android:backgroundTint="@color/transparent"
+            android:contentDescription="@string/cd_close_page"
             android:src="@drawable/ic_close"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginTop="12dp"
+            android:layout_height="50dp"
             android:gravity="center"
-            android:text="@string/new_habit"
-            android:textColor="@color/silver"
-            android:textSize="20sp"
+            android:letterSpacing="0.1"
+            android:text="@string/title_new_task"
+            android:textColor="@color/white"
+            android:textSize="@dimen/h2"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-    <com.google.android.flexbox.FlexboxLayout
-        android:id="@+id/input_menu_task"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginVertical="8dp"
-        android:background="#1C1C23"
-        android:paddingHorizontal="24dp"
-        android:paddingVertical="12dp"
-        app:justifyContent="space_around"
-        app:layout_constraintTop_toBottomOf="@+id/title">
-
-        <CheckedTextView
-            android:id="@+id/button_regularTask"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/bg_button"
-            android:backgroundTint="@color/gray"
-            android:checked="true"
-            android:ems="9"
-            android:paddingVertical="8dp"
-            android:text="@string/regularTask_button"
-            android:textAlignment="center"
-            android:textColor="@color/white" />
-
-        <CheckedTextView
-            android:id="@+id/button_oneTask"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/bg_button"
-            android:backgroundTint="@color/gray"
-            android:ems="9"
-            android:paddingVertical="8dp"
-            android:text="@string/oneTask_button"
-            android:textAlignment="center"
-            android:textColor="@color/white" />
-
-    </com.google.android.flexbox.FlexboxLayout>
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@+id/input_menu_task">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent">
-
-            <com.google.android.material.divider.MaterialDivider
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:dividerColor="#2D2D33" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:paddingHorizontal="24dp"
-                android:paddingVertical="12dp">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:paddingStart="4dp"
-                    android:paddingEnd="4dp"
-                    android:text="@string/label_name_of_habit"
-                    android:textColor="@color/white" />
-
-                <EditText
-                    android:id="@+id/input_name_habit"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginVertical="8dp"
-                    android:background="@drawable/bg_input"
-                    android:inputType="text"
-                    android:paddingHorizontal="16dp"
-                    android:paddingVertical="12dp"
-                    android:textColor="@color/white"
-                    android:textSize="20sp"
-                    android:autofillHints=""
-                    tools:ignore="LabelFor" />
-            </LinearLayout>
-
-            <com.google.android.material.divider.MaterialDivider
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:dividerColor="#2D2D33" />
-
-            <LinearLayout
-                android:id="@+id/input_oneTimeTask"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:paddingHorizontal="24dp"
-                android:paddingVertical="12dp"
-                android:visibility="gone">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:paddingStart="4dp"
-                    android:paddingEnd="4dp"
-                    android:text="@string/date"
-                    android:textColor="@color/white" />
-
-                <EditText
-                    android:id="@+id/input_date"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginVertical="8dp"
-                    android:background="@drawable/bg_input"
-                    android:inputType="date"
-                    android:paddingHorizontal="16dp"
-                    android:paddingVertical="12dp"
-                    android:textColor="@color/white"
-                    android:textSize="20sp"
-                    android:autofillHints=""
-                    tools:ignore="LabelFor" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/input_regularTask"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:paddingHorizontal="24dp"
-                android:paddingVertical="12dp">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingStart="4dp"
-                    android:paddingEnd="4dp"
-                    android:text="@string/repeat_on"
-                    android:textColor="@color/white" />
-
-
-                <com.google.android.flexbox.FlexboxLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginVertical="12dp"
-                    app:justifyContent="space_around">
-
-                    <CheckedTextView
-                        android:id="@+id/sunday"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:layout_marginVertical="4dp"
-                        android:background="@drawable/bg_circle"
-                        android:textStyle="bold"
-                        android:backgroundTint="@color/orange"
-                        android:gravity="center"
-                        android:text="@string/s"
-                        android:textAlignment="center"
-                        android:textColor="@color/white"  />
-
-                    <CheckedTextView
-                        android:id="@+id/monday"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:layout_marginVertical="4dp"
-                        android:background="@drawable/bg_circle"
-                        android:textStyle="bold"
-                        android:backgroundTint="@color/orange"
-                        android:gravity="center"
-                        android:text="@string/m"
-                        android:textAlignment="center"
-                        android:textColor="@color/white"  />
-
-                    <CheckedTextView
-                        android:id="@+id/tuesday"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:layout_marginVertical="4dp"
-                        android:background="@drawable/bg_circle"
-                        android:textStyle="bold"
-                        android:backgroundTint="@color/orange"
-                        android:gravity="center"
-                        android:text="@string/t"
-                        android:textAlignment="center"
-                        android:textColor="@color/white" />
-
-                    <CheckedTextView
-                        android:id="@+id/wednesday"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:layout_marginVertical="4dp"
-                        android:background="@drawable/bg_circle"
-                        android:textStyle="bold"
-                        android:backgroundTint="@color/orange"
-                        android:gravity="center"
-                        android:text="@string/w"
-                        android:textAlignment="center"
-                        android:textColor="@color/white"  />
-
-                    <CheckedTextView
-                        android:id="@+id/thursday"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:layout_marginVertical="4dp"
-                        android:background="@drawable/bg_circle"
-                        android:textStyle="bold"
-                        android:backgroundTint="@color/orange"
-                        android:gravity="center"
-                        android:text="@string/t"
-                        android:textAlignment="center"
-                        android:textColor="@color/white" />
-
-                    <CheckedTextView
-                        android:id="@+id/friday"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:layout_marginVertical="4dp"
-                        android:background="@drawable/bg_circle"
-                        android:textStyle="bold"
-                        android:backgroundTint="@color/orange"
-                        android:gravity="center"
-                        android:text="@string/f"
-                        android:textAlignment="center"
-                        android:textColor="@color/white"  />
-
-                    <CheckedTextView
-                        android:id="@+id/saturday"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:layout_marginVertical="4dp"
-                        android:background="@drawable/bg_circle"
-                        android:textStyle="bold"
-                        android:backgroundTint="@color/orange"
-                        android:gravity="center"
-                        android:text="@string/s"
-                        android:textAlignment="center"
-                        android:textColor="@color/white" />
-                </com.google.android.flexbox.FlexboxLayout>
-
-                <CheckBox
-                    android:id="@+id/checkbox_repeatAllDays"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/repeat_every_day"
-                    android:textColor="@color/white" />
-
-                <CheckBox
-                    android:id="@+id/checkbox_endDate"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/set_end_date"
-                    android:textColor="@color/white" />
-
-                <EditText
-                    android:id="@+id/input_endDate"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginVertical="8dp"
-                    android:background="@drawable/bg_input"
-                    android:inputType="date"
-                    android:paddingHorizontal="16dp"
-                    android:paddingVertical="12dp"
-                    android:textColor="@color/white"
-                    android:textColorHint="@color/gray"
-                    android:textSize="20sp"
-                    android:visibility="gone"
-                    android:autofillHints=""
-                    tools:ignore="LabelFor" />
-
-            </LinearLayout>
-
-            <com.google.android.material.divider.MaterialDivider
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:dividerColor="#2D2D33" />
-
-            <!--            <LinearLayout-->
-            <!--                android:layout_width="match_parent"-->
-            <!--                android:layout_height="wrap_content"-->
-            <!--                android:orientation="vertical"-->
-            <!--                android:paddingHorizontal="24dp"-->
-            <!--                android:paddingVertical="12dp">-->
-
-            <!--                <CheckBox-->
-            <!--                    android:id="@+id/checkbox_setGoal"-->
-            <!--                    android:layout_width="match_parent"-->
-            <!--                    android:layout_height="wrap_content"-->
-            <!--                    android:text="Set goal"-->
-            <!--                    android:textColor="@color/white" />-->
-
-            <!--                <com.google.android.flexbox.FlexboxLayout-->
-            <!--                    android:id="@+id/input_goal_container"-->
-            <!--                    android:layout_width="match_parent"-->
-            <!--                    android:layout_height="wrap_content"-->
-            <!--                    android:paddingHorizontal="24dp"-->
-            <!--                    android:paddingVertical="12dp"-->
-            <!--                    app:alignItems="center"-->
-            <!--                    app:justifyContent="center"-->
-            <!--                    android:visibility="gone">-->
-
-            <!--                    <TextView-->
-            <!--                        android:layout_width="wrap_content"-->
-            <!--                        android:layout_height="wrap_content"-->
-            <!--                        android:text="Repeat"-->
-            <!--                        android:textColor="@color/white" />-->
-
-            <!--                    <EditText-->
-            <!--                        android:id="@+id/input_goal"-->
-            <!--                        android:layout_width="wrap_content"-->
-            <!--                        android:layout_height="wrap_content"-->
-            <!--                        android:layout_gravity="center"-->
-            <!--                        android:layout_marginHorizontal="12dp"-->
-            <!--                        android:layout_marginVertical="8dp"-->
-            <!--                        android:backgroundTint="@color/white"-->
-            <!--                        android:ems="3"-->
-            <!--                        android:inputType="number"-->
-            <!--                        android:paddingHorizontal="16dp"-->
-            <!--                        android:paddingVertical="12dp"-->
-            <!--                        android:textColor="@color/white"-->
-            <!--                        android:textColorHint="@color/gray"-->
-            <!--                        android:textSize="20sp" />-->
-
-            <!--                    <TextView-->
-            <!--                        android:layout_width="wrap_content"-->
-            <!--                        android:layout_height="wrap_content"-->
-            <!--                        android:text="times in one day"-->
-            <!--                        android:textColor="@color/white" />-->
-            <!--                </com.google.android.flexbox.FlexboxLayout>-->
-            <!--            </LinearLayout>-->
-
-            <com.google.android.material.divider.MaterialDivider
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:dividerColor="#2D2D33" />
-
-
-            <!--            <LinearLayout-->
-            <!--                android:layout_width="match_parent"-->
-            <!--                android:layout_height="wrap_content"-->
-            <!--                android:orientation="vertical"-->
-            <!--                android:paddingHorizontal="24dp"-->
-            <!--                android:paddingVertical="12dp">-->
-
-            <!--                <TextView-->
-            <!--                    android:layout_width="match_parent"-->
-            <!--                    android:layout_height="wrap_content"-->
-            <!--                    android:layout_marginTop="8dp"-->
-            <!--                    android:paddingLeft="4dp"-->
-            <!--                    android:text="@string/label_custom_color"-->
-            <!--                    android:textColor="@color/white" />-->
-
-            <!--                <com.google.android.flexbox.FlexboxLayout-->
-            <!--                    android:id="@+id/container_custom_color"-->
-            <!--                    android:layout_width="match_parent"-->
-            <!--                    android:layout_height="wrap_content"-->
-            <!--                    android:layout_marginVertical="8dp"-->
-            <!--                    app:justifyContent="space_around"-->
-            <!--                    app:alignItems="center">-->
-
-            <!--                    <CheckedTextView-->
-            <!--                        android:id="@+id/custom_task_blue"-->
-            <!--                        android:layout_width="30dp"-->
-            <!--                        android:layout_height="30dp"-->
-            <!--                        android:layout_marginVertical="4dp"-->
-            <!--                        android:background="@drawable/bg_circle"-->
-            <!--                        android:backgroundTint="@color/task_blue" />-->
-
-            <!--                    <CheckedTextView-->
-            <!--                        android:id="@+id/custom_task_green"-->
-            <!--                        android:layout_width="30dp"-->
-            <!--                        android:layout_height="30dp"-->
-            <!--                        android:layout_marginVertical="4dp"-->
-            <!--                        android:background="@drawable/bg_circle"-->
-            <!--                        android:backgroundTint="@color/task_green" />-->
-
-            <!--                    <CheckedTextView-->
-            <!--                        android:id="@+id/custom_task_yellow"-->
-            <!--                        android:layout_width="30dp"-->
-            <!--                        android:layout_height="30dp"-->
-            <!--                        android:layout_marginVertical="4dp"-->
-            <!--                        android:background="@drawable/bg_circle"-->
-            <!--                        android:backgroundTint="@color/task_yellow" />-->
-
-            <!--                    <CheckedTextView-->
-            <!--                        android:id="@+id/custom_task_orange"-->
-            <!--                        android:layout_width="30dp"-->
-            <!--                        android:layout_height="30dp"-->
-            <!--                        android:layout_marginVertical="4dp"-->
-            <!--                        android:background="@drawable/bg_circle"-->
-            <!--                        android:backgroundTint="@color/task_orange" />-->
-
-            <!--                    <CheckedTextView-->
-            <!--                        android:id="@+id/custom_task_pink"-->
-            <!--                        android:layout_width="30dp"-->
-            <!--                        android:layout_height="30dp"-->
-            <!--                        android:layout_marginVertical="4dp"-->
-            <!--                        android:background="@drawable/bg_circle"-->
-            <!--                        android:backgroundTint="@color/task_pink" />-->
-
-            <!--                    <CheckedTextView-->
-            <!--                        android:id="@+id/custom_task_purple"-->
-            <!--                        android:layout_width="30dp"-->
-            <!--                        android:layout_height="30dp"-->
-            <!--                        android:layout_marginVertical="4dp"-->
-            <!--                        android:background="@drawable/bg_circle"-->
-            <!--                        android:backgroundTint="@color/task_purple" />-->
-            <!--                </com.google.android.flexbox.FlexboxLayout>-->
-            <!--            </LinearLayout>-->
-        </LinearLayout>
-    </ScrollView>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#1C1C23"
         android:orientation="vertical"
-        android:paddingHorizontal="24dp"
-        android:paddingVertical="12dp"
-        app:layout_constraintBottom_toBottomOf="parent">
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title">
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/button_submit"
+        <LinearLayout
             android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingVertical="12dp">
+
+            <TextView
+                android:id="@+id/label_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="24dp"
+                android:paddingHorizontal="@dimen/label_text_ph"
+                android:text="@string/label_title"
+                android:textColor="@color/white"
+                android:textSize="@dimen/h4"
+                android:textStyle="bold"
+                tools:ignore="RtlSymmetry" />
+
+            <EditText
+                android:id="@+id/input_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginHorizontal="@dimen/body_mh"
+                android:layout_marginVertical="8dp"
+                android:autofillHints=""
+                android:background="@drawable/bg_input"
+                android:hint="@string/hint_title_task"
+                android:inputType="text"
+                android:labelFor="@+id/label_email"
+                android:padding="@dimen/input_p"
+                android:textColor="@color/white"
+                android:textColorHint="@color/silver"
+                android:textSize="20sp" />
+
+            <com.google.android.material.divider.MaterialDivider
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:dividerColor="#2D2D33" />
+
+            <TextView
+                android:id="@+id/label_desc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="24dp"
+                android:paddingTop="12dp"
+                android:paddingBottom="@dimen/label_text_ph"
+                android:text="@string/label_description"
+                android:textColor="@color/white"
+                android:textSize="@dimen/h4"
+                android:textStyle="bold"
+                tools:ignore="RtlSymmetry" />
+
+            <EditText
+                android:id="@+id/input_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginHorizontal="24dp"
+                android:layout_marginVertical="8dp"
+                android:autofillHints=""
+                android:background="@drawable/bg_input"
+                android:gravity="top"
+                android:hint="@string/hint_describe_your_task_here"
+                android:inputType="textMultiLine"
+                android:lines="10"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="12dp"
+                android:textColor="@color/white"
+                android:textColorHint="@color/silver"
+                android:textSize="20sp"
+                tools:ignore="LabelFor" />
+        </LinearLayout>
+
+        <com.google.android.material.divider.MaterialDivider
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="24dp"
-            android:background="@drawable/bg_button"
-            android:backgroundTint="@color/orange"
-            android:text="@string/save_button"
-            android:textAllCaps="false"
-            android:textColor="@color/gray"
-            android:textStyle="bold"/>
+            app:dividerColor="#2D2D33" />
     </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_submit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/body_mh"
+        android:background="@drawable/bg_rectangle_fill"
+        android:backgroundTint="@color/button_primary"
+        android:padding="@dimen/btn_p"
+        android:text="@string/btn_label_save"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="@dimen/btn_text_size"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

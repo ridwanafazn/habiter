@@ -21,4 +21,6 @@
     <color name="task_pink">#E91E63</color>
     <color name="task_purple">#673AB7</color>
     <color name="orange">#FF7966</color>
+    <color name="error">#941616</color>
+    <color name="button_primary">#F44336</color>
 </resources>

@@ -12,149 +12,116 @@
         android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingBottom="10dp"
+        android:paddingHorizontal="@dimen/header_mh"
+        android:paddingVertical="@dimen/header_mv"
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.appcompat.widget.AppCompatImageButton
-            android:id="@+id/btn_close"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginTop="12dp"
-            android:layout_marginEnd="15dp"
+            android:id="@+id/button_close_setting"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
             android:backgroundTint="@color/transparent"
+            android:contentDescription="@string/cd_close_page"
             android:src="@drawable/ic_close"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginTop="12dp"
+            android:layout_height="50dp"
             android:gravity="center"
-            android:text="@string/edit_profil"
-            android:textColor="#a2a285"
-            android:textSize="20sp"
+            android:letterSpacing="0.1"
+            android:text="@string/title_edit_profile"
+            android:textColor="@color/white"
+            android:textSize="@dimen/h2"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <LinearLayout
-        android:id="@+id/profil"
+        android:id="@+id/profile"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingHorizontal="24dp"
-        android:paddingTop="50dp"
-        android:paddingBottom="25dp"
+        android:paddingHorizontal="@dimen/body_mh"
+        android:paddingVertical="@dimen/body_mv"
         app:layout_constraintTop_toBottomOf="@+id/title">
 
         <ImageView
-            android:id="@+id/user_avatar"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
+            android:layout_width="@dimen/profile_dimension"
+            android:layout_height="@dimen/profile_dimension"
             android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="18dp"
+            android:contentDescription="@string/cd_profile_image"
             android:src="@drawable/avatar_1"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <!--        <LinearLayout-->
-        <!--            android:layout_width="wrap_content"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:layout_gravity="center_horizontal">-->
-
-        <!--            <ImageButton-->
-        <!--                android:id="@+id/update_photo"-->
-        <!--                android:layout_width="wrap_content"-->
-        <!--                android:layout_height="wrap_content"-->
-        <!--                android:layout_marginEnd="4dp"-->
-        <!--                android:background="@drawable/bg_rectangle_outline"-->
-        <!--                android:backgroundTint="@color/gray"-->
-        <!--                android:padding="10dp"-->
-        <!--                android:src="@drawable/ic_edit"-->
-        <!--                app:tint="@color/white" />-->
-
-        <!--            <ImageButton-->
-        <!--                android:id="@+id/delete_photo"-->
-        <!--                android:layout_width="wrap_content"-->
-        <!--                android:layout_height="wrap_content"-->
-        <!--                android:layout_marginStart="4dp"-->
-        <!--                android:background="@drawable/bg_rectangle_outline"-->
-        <!--                android:backgroundTint="@color/gray"-->
-        <!--                android:padding="10dp"-->
-        <!--                android:src="@drawable/ic_delete"-->
-        <!--                app:tint="@color/white" />-->
-        <!--        </LinearLayout>-->
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="@dimen/hero_mb"
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/label_display_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:paddingStart="4dp"
-                android:text="@string/display_name"
+                android:paddingHorizontal="@dimen/label_text_ph"
+                android:text="@string/label_display_name"
                 android:textColor="@color/white"
+                android:textSize="@dimen/h4"
+                android:textStyle="bold"
                 tools:ignore="RtlSymmetry" />
 
             <EditText
-                android:id="@+id/input_username"
+                android:id="@+id/input_display_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginVertical="8dp"
+                android:autofillHints="name"
                 android:background="@drawable/bg_input"
+                android:hint="@string/hint_display_name"
                 android:inputType="text"
-                android:paddingHorizontal="16dp"
-                android:paddingVertical="12dp"
+                android:labelFor="@+id/label_display_name"
+                android:padding="@dimen/input_p"
                 android:textColor="@color/white"
-                android:textSize="20sp"
-                android:autofillHints="" />
+                android:textColorHint="@color/silver"
+                android:textSize="20sp" />
         </LinearLayout>
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/button"
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_save"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:layout_margin="@dimen/body_mh"
+        android:background="@drawable/bg_rectangle_fill"
+        android:backgroundTint="@color/button_primary"
+        android:padding="@dimen/btn_p"
+        android:text="@string/btn_label_save"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="@dimen/btn_text_size"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
-        android:paddingTop="50dp"
-        android:paddingBottom="24dp"
-        app:layout_constraintBottom_toBottomOf="parent">
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/button_signin"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="24dp"
-            android:layout_marginBottom="24dp"
-            android:background="@drawable/bg_button"
-            android:backgroundTint="@color/orange"
-            android:text="@string/save"
-            android:textAllCaps="false"
-            android:textColor="@color/gray"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent" />
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/button_delete_my_account"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="24dp"
-            android:layout_marginBottom="24dp"
-            android:background="@drawable/bg_button"
-            android:backgroundTint="#CF3739"
-            android:text="@string/delete_my_account"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent" />
-    </LinearLayout>
+    <!--        <androidx.appcompat.widget.AppCompatButton-->
+    <!--            android:id="@+id/button_delete_my_account"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_marginHorizontal="24dp"-->
+    <!--            android:layout_marginBottom="24dp"-->
+    <!--            android:background="@drawable/bg_button"-->
+    <!--            android:backgroundTint="#CF3739"-->
+    <!--            android:text="@string/delete_my_account"-->
+    <!--            android:textAllCaps="false"-->
+    <!--            android:textColor="@color/white"-->
+    <!--            android:textStyle="bold"-->
+    <!--            app:layout_constraintBottom_toBottomOf="parent" />-->
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

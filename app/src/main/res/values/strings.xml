@@ -73,5 +73,39 @@
     <string name="monthly">Monthly</string>
     <string name="weekly">Weekly</string>
     <string name="repeat_habit">Repeat Habit</string>
-
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="setting_button">Setting button</string>
+    <string name="button_delete_task">button delete task</string>
+    <string name="button_check_task">button check task</string>
+    <string name="button_undo_task">button undo task</string>
+    <string name="tittle_setting">Setting</string>
+    <string name="btn_label_edit_profile">Edit Profile</string>
+    <string name="btn_label_logout">Logout</string>
+    <string name="label_danger_zone">Danger Zone</string>
+    <string name="label_general">General</string>
+    <string name="cd_profile_image">Profile Image</string>
+    <string name="button_label_delete_account">Delete Account</string>
+    <string name="btn_label_delete_account">Delete Account</string>
+    <string name="cd_close_page">close page</string>
+    <string name="title_edit_profile">Edit Profile</string>
+    <string name="label_display_name">Display Name</string>
+    <string name="cd_input_edit_display_name">input edit display name</string>
+    <string name="hint_display_name">Enter your new name</string>
+    <string name="btn_label_save">Save</string>
+    <string name="hint_email">Enter your email</string>
+    <string name="hint_password">Enter your password</string>
+    <string name="hint_full_name">Enter your name</string>
+    <string name="hint_repassword">Enter your password again</string>
+    <string name="btn_signin">Sign In</string>
+    <string name="cd_button_setting">button setting</string>
+    <string name="cd_setting">setting</string>
+    <string name="cd_delete_task">delete task</string>
+    <string name="cd_update_task">update task</string>
+    <string name="cd_add_task">add task</string>
+    <string name="hint_title_task">Enter title task</string>
+    <string name="label_title">Title</string>
+    <string name="label_description">Description</string>
+    <string name="hint_describe_your_task_here">Describe your task here</string>
+    <string name="title_new_task">New Task</string>
 </resources>

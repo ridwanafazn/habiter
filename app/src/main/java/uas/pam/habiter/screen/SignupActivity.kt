@@ -2,12 +2,12 @@ package uas.pam.habiter.screen
 
 import android.app.ProgressDialog
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import android.widget.Toast.LENGTH_SHORT
+import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
@@ -45,10 +45,10 @@ class SignupActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_signup)
-        editName = findViewById(R.id.editTextTextfullName)
-        editEmail = findViewById(R.id.editTextTextEmailAddress)
-        editPassword = findViewById(R.id.editTextTextPassword)
-        editPasswordConf = findViewById(R.id.editTextTextRepassword)
+        editName = findViewById(R.id.input_full_name)
+        editEmail = findViewById(R.id.input_email)
+        editPassword = findViewById(R.id.input_password)
+        editPasswordConf = findViewById(R.id.input_re_password)
         btnSignup = findViewById(R.id.button_signup)
         btnSignin = findViewById(R.id.button_signin)
         btnGoogle = findViewById(R.id.button_google)
