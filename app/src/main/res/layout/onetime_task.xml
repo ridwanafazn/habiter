@@ -26,6 +26,8 @@
         android:inputType="date"
         android:paddingHorizontal="16dp"
         android:paddingVertical="12dp"
+        android:hint="@string/pick_a_date"
+        android:textColorHint="@color/white"
         android:textColor="@color/white"
         android:textSize="20sp"
         tools:ignore="LabelFor,TextFields"

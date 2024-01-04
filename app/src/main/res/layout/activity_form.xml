@@ -200,7 +200,7 @@
                         android:gravity="center"
                         android:text="@string/s"
                         android:textAlignment="center"
-                        android:textColor="@color/gray"  />
+                        android:textColor="@color/white"  />
 
                     <CheckedTextView
                         android:id="@+id/monday"
@@ -213,7 +213,7 @@
                         android:gravity="center"
                         android:text="@string/m"
                         android:textAlignment="center"
-                        android:textColor="@color/gray"  />
+                        android:textColor="@color/white"  />
 
                     <CheckedTextView
                         android:id="@+id/tuesday"
@@ -226,7 +226,7 @@
                         android:gravity="center"
                         android:text="@string/t"
                         android:textAlignment="center"
-                        android:textColor="@color/gray" />
+                        android:textColor="@color/white" />
 
                     <CheckedTextView
                         android:id="@+id/wednesday"
@@ -239,7 +239,7 @@
                         android:gravity="center"
                         android:text="@string/w"
                         android:textAlignment="center"
-                        android:textColor="@color/gray"  />
+                        android:textColor="@color/white"  />
 
                     <CheckedTextView
                         android:id="@+id/thursday"
@@ -252,7 +252,7 @@
                         android:gravity="center"
                         android:text="@string/t"
                         android:textAlignment="center"
-                        android:textColor="@color/gray" />
+                        android:textColor="@color/white" />
 
                     <CheckedTextView
                         android:id="@+id/friday"
@@ -265,7 +265,7 @@
                         android:gravity="center"
                         android:text="@string/f"
                         android:textAlignment="center"
-                        android:textColor="@color/gray"  />
+                        android:textColor="@color/white"  />
 
                     <CheckedTextView
                         android:id="@+id/saturday"
@@ -278,7 +278,7 @@
                         android:gravity="center"
                         android:text="@string/s"
                         android:textAlignment="center"
-                        android:textColor="@color/gray" />
+                        android:textColor="@color/white" />
                 </com.google.android.flexbox.FlexboxLayout>
 
                 <CheckBox
