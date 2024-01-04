@@ -17,7 +17,7 @@
         android:layout_marginTop="120dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        />
+        android:contentDescription="@string/todo" />
 
     <ImageView
         android:layout_width="wrap_content"
@@ -29,7 +29,7 @@
         android:layout_marginBottom="120dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        />
+        android:contentDescription="@string/todo" />
 
 
     <ImageView
@@ -42,7 +42,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        />
+        android:contentDescription="@string/todo" />
 
     <TextView
         android:id="@+id/textView2"
@@ -64,8 +64,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/bg_button"
-        android:text="Get Started"
-        android:textColor="@color/white"
+        android:text="@string/get_started"
+        android:textColor="@color/gray"
         android:textAllCaps="false"
         android:textStyle="bold"
         android:layout_marginHorizontal="24dp"
@@ -79,7 +79,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/bg_button"
         android:layout_marginHorizontal="24dp"
-        android:text="I Have an Account"
+        android:text="@string/i_have_an_account"
         android:textColor="@color/white"
         android:backgroundTint="@color/gray"
         app:layout_constraintBottom_toTopOf="@id/about"
@@ -99,7 +99,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="By using this application you agree to the Terms of Services"
+            android:text="@string/terms"
             android:textColor="@color/white"
             android:textAlignment="center"
             android:layout_marginBottom="8dp"
@@ -108,7 +108,7 @@
             android:id="@+id/version"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="V.1.0"
+            android:text="@string/v1"
             android:textColor="@color/white"
             android:textAlignment="center"
             />

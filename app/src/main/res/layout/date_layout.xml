@@ -15,7 +15,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/white"
-        android:text="11"
+        android:text="@string/date_sample"
         android:textSize="24sp" />
 
     <TextView
@@ -23,7 +23,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/white"
-        android:text="Mon"
+        android:text="@string/mon"
         android:textSize="14sp" />
 
 </LinearLayout>

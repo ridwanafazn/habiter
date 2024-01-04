@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -11,8 +12,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:paddingLeft="4dp"
-        android:text="Repeat Habit"
+        android:paddingStart="4dp"
+        android:paddingEnd="4dp"
+        android:text="@string/repeat_habit"
         android:textColor="@color/white" />
 
     <com.google.android.flexbox.FlexboxLayout
@@ -28,7 +30,7 @@
             android:backgroundTint="@color/gray"
             android:ems="6"
             android:paddingVertical="4dp"
-            android:text="Daily"
+            android:text="@string/daily"
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textStyle="bold" />
@@ -40,7 +42,7 @@
             android:backgroundTint="@color/gray"
             android:ems="6"
             android:paddingVertical="4dp"
-            android:text="Weekly"
+            android:text="@string/weekly"
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textStyle="bold" />
@@ -52,7 +54,7 @@
             android:backgroundTint="@color/gray"
             android:ems="6"
             android:paddingVertical="4dp"
-            android:text="Monthly"
+            android:text="@string/monthly"
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textStyle="bold" />
@@ -61,7 +63,7 @@
     <CheckBox
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Repeat every day"
+        android:text="@string/repeat_every_day"
         android:textColor="@color/white" />
 
     <com.google.android.flexbox.FlexboxLayout
@@ -150,7 +152,7 @@
     <CheckBox
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Set end date"
+        android:text="@string/set_end_date"
         android:textColor="@color/white" />
     <EditText
         android:id="@+id/editTextTextEmailAddress"
@@ -160,11 +162,13 @@
         android:layout_marginVertical="8dp"
         android:background="@drawable/bg_input"
         android:inputType="date"
-        android:hint="Pick a date"
-        android:textColorHint="@color/gray"
+        android:hint="@string/pick_a_date"
+        android:textColorHint="@color/white"
         android:paddingHorizontal="16dp"
         android:paddingVertical="12dp"
         android:textColor="@color/white"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        tools:ignore="TextFields"
+        android:autofillHints="" />
 
 </LinearLayout>

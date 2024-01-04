@@ -34,9 +34,9 @@
                     android:id="@+id/title"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Title Task"
+                    android:text="@string/title_task"
                     android:textColor="#FF5722"
-                    android:textSize="16dp"
+                    android:textSize="16sp"
                     android:textStyle="bold"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -44,7 +44,7 @@
                     android:id="@+id/label"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Go For It!"
+                    android:text="@string/go_for_it"
                     android:textColor="#a2a285"
                     app:layout_constraintTop_toBottomOf="@+id/title" />
             </LinearLayout>
@@ -52,12 +52,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
                 <ImageButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
                     android:src="@drawable/ic_delete"
                     android:backgroundTint="@color/transparent"
                     app:tint="#FF5722"
-                    android:layout_gravity="center"/>
+                    android:layout_gravity="center"
+                    android:contentDescription="@string/todo" />
                 <ImageButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -66,7 +67,8 @@
                     android:backgroundTint="@color/task_green"
                     app:tint="@color/darkgray"
                     android:layout_gravity="center"
-                    android:padding="4dp"/>
+                    android:padding="4dp"
+                    android:contentDescription="@string/todo" />
                 <ImageButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -76,7 +78,8 @@
                     app:tint="@color/darkgray"
                     android:layout_gravity="center"
                     android:padding="4dp"
-                    android:visibility="gone"/>
+                    android:visibility="gone"
+                    android:contentDescription="@string/todo" />
             </LinearLayout>
 
         </com.google.android.flexbox.FlexboxLayout>

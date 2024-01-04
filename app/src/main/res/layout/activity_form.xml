@@ -17,10 +17,10 @@
 
         <androidx.appcompat.widget.AppCompatImageButton
             android:id="@+id/btnback"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
             android:layout_marginTop="12dp"
-            android:layout_marginRight="12dp"
+            android:layout_marginEnd="12dp"
             android:backgroundTint="@color/transparent"
             android:src="@drawable/ic_close"
             app:layout_constraintRight_toRightOf="parent"
@@ -31,9 +31,9 @@
             android:layout_height="40dp"
             android:layout_marginTop="12dp"
             android:gravity="center"
-            android:text="New Habit"
+            android:text="@string/new_habit"
             android:textColor="@color/silver"
-            android:textSize="20dp"
+            android:textSize="20sp"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -105,7 +105,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:paddingLeft="4dp"
+                    android:paddingStart="4dp"
+                    android:paddingEnd="4dp"
                     android:text="@string/label_name_of_habit"
                     android:textColor="@color/white" />
 
@@ -120,7 +121,9 @@
                     android:paddingHorizontal="16dp"
                     android:paddingVertical="12dp"
                     android:textColor="@color/white"
-                    android:textSize="20sp" />
+                    android:textSize="20sp"
+                    android:autofillHints=""
+                    tools:ignore="LabelFor" />
             </LinearLayout>
 
             <com.google.android.material.divider.MaterialDivider
@@ -141,8 +144,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:paddingLeft="4dp"
-                    android:text="Date"
+                    android:paddingStart="4dp"
+                    android:paddingEnd="4dp"
+                    android:text="@string/date"
                     android:textColor="@color/white" />
 
                 <EditText
@@ -156,7 +160,9 @@
                     android:paddingHorizontal="16dp"
                     android:paddingVertical="12dp"
                     android:textColor="@color/white"
-                    android:textSize="20sp" />
+                    android:textSize="20sp"
+                    android:autofillHints=""
+                    tools:ignore="LabelFor" />
 
             </LinearLayout>
 
@@ -171,8 +177,9 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingLeft="4dp"
-                    android:text="Repeat On"
+                    android:paddingStart="4dp"
+                    android:paddingEnd="4dp"
+                    android:text="@string/repeat_on"
                     android:textColor="@color/white" />
 
 
@@ -191,9 +198,9 @@
                         android:textStyle="bold"
                         android:backgroundTint="@color/orange"
                         android:gravity="center"
-                        android:text="S"
+                        android:text="@string/s"
                         android:textAlignment="center"
-                        android:textColor="@color/white" />
+                        android:textColor="@color/gray"  />
 
                     <CheckedTextView
                         android:id="@+id/monday"
@@ -204,9 +211,9 @@
                         android:textStyle="bold"
                         android:backgroundTint="@color/orange"
                         android:gravity="center"
-                        android:text="M"
+                        android:text="@string/m"
                         android:textAlignment="center"
-                        android:textColor="@color/white" />
+                        android:textColor="@color/gray"  />
 
                     <CheckedTextView
                         android:id="@+id/tuesday"
@@ -217,9 +224,9 @@
                         android:textStyle="bold"
                         android:backgroundTint="@color/orange"
                         android:gravity="center"
-                        android:text="T"
+                        android:text="@string/t"
                         android:textAlignment="center"
-                        android:textColor="@color/white" />
+                        android:textColor="@color/gray" />
 
                     <CheckedTextView
                         android:id="@+id/wednesday"
@@ -230,9 +237,9 @@
                         android:textStyle="bold"
                         android:backgroundTint="@color/orange"
                         android:gravity="center"
-                        android:text="W"
+                        android:text="@string/w"
                         android:textAlignment="center"
-                        android:textColor="@color/white" />
+                        android:textColor="@color/gray"  />
 
                     <CheckedTextView
                         android:id="@+id/thursday"
@@ -243,9 +250,9 @@
                         android:textStyle="bold"
                         android:backgroundTint="@color/orange"
                         android:gravity="center"
-                        android:text="T"
+                        android:text="@string/t"
                         android:textAlignment="center"
-                        android:textColor="@color/white" />
+                        android:textColor="@color/gray" />
 
                     <CheckedTextView
                         android:id="@+id/friday"
@@ -256,9 +263,9 @@
                         android:textStyle="bold"
                         android:backgroundTint="@color/orange"
                         android:gravity="center"
-                        android:text="F"
+                        android:text="@string/f"
                         android:textAlignment="center"
-                        android:textColor="@color/white" />
+                        android:textColor="@color/gray"  />
 
                     <CheckedTextView
                         android:id="@+id/saturday"
@@ -269,23 +276,23 @@
                         android:textStyle="bold"
                         android:backgroundTint="@color/orange"
                         android:gravity="center"
-                        android:text="S"
+                        android:text="@string/s"
                         android:textAlignment="center"
-                        android:textColor="@color/white" />
+                        android:textColor="@color/gray" />
                 </com.google.android.flexbox.FlexboxLayout>
 
                 <CheckBox
                     android:id="@+id/checkbox_repeatAllDays"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Repeat every day"
+                    android:text="@string/repeat_every_day"
                     android:textColor="@color/white" />
 
                 <CheckBox
                     android:id="@+id/checkbox_endDate"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Set end date"
+                    android:text="@string/set_end_date"
                     android:textColor="@color/white" />
 
                 <EditText
@@ -301,7 +308,9 @@
                     android:textColor="@color/white"
                     android:textColorHint="@color/gray"
                     android:textSize="20sp"
-                    android:visibility="gone" />
+                    android:visibility="gone"
+                    android:autofillHints=""
+                    tools:ignore="LabelFor" />
 
             </LinearLayout>
 
@@ -463,7 +472,7 @@
             android:backgroundTint="@color/orange"
             android:text="@string/save_button"
             android:textAllCaps="false"
-            android:textColor="@color/white"
-            android:textStyle="bold" />
+            android:textColor="@color/gray"
+            android:textStyle="bold"/>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

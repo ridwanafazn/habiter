@@ -20,7 +20,7 @@
             android:id="@+id/button_close_setting"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:layout_marginRight="15dp"
+            android:layout_marginEnd="15dp"
             android:layout_marginTop="12dp"
             android:backgroundTint="@color/transparent"
             android:src="@drawable/ic_close"
@@ -32,9 +32,9 @@
             android:layout_height="40dp"
             android:layout_marginTop="12dp"
             android:gravity="center"
-            android:text="Setting"
+            android:text="@string/setting"
             android:textColor="#a2a285"
-            android:textSize="20dp"
+            android:textSize="20sp"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -56,26 +56,27 @@
             android:src="@drawable/avatar_1"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:contentDescription="@string/todo" />
 
         <TextView
             android:id="@+id/textfullName"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Sumitra"
+            android:text="@string/name_example"
             android:textAlignment="center"
             android:textColor="@color/white"
-            android:textSize="24dp"
+            android:textSize="24sp"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/textEmail"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="hehehe@gmail.com"
+            android:text="@string/example_email"
             android:textAlignment="center"
             android:textColor="@color/white"
-            android:textSize="20dp" />
+            android:textSize="20sp" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/edit_profil"
@@ -86,10 +87,10 @@
             android:background="@drawable/bg_button"
             android:backgroundTint="@color/gray"
             android:paddingHorizontal="20dp"
-            android:text="Edit Profil"
+            android:text="@string/edit_profil"
             android:textAllCaps="false"
             android:textColor="@color/white"
-            android:textSize="16dp"
+            android:textSize="16sp"
             android:textStyle="bold" />
     </LinearLayout>
 
@@ -104,8 +105,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginVertical="8dp"
-            android:paddingLeft="4dp"
-            android:text="General"
+            android:paddingStart="4dp"
+            android:paddingEnd="4dp"
+            android:text="@string/general"
             android:textColor="@color/white" />
 
         <androidx.appcompat.widget.AppCompatButton
@@ -120,11 +122,11 @@
             android:drawableTint="@color/white"
             android:paddingHorizontal="20dp"
             android:paddingVertical="20dp"
-            android:text="Logout"
+            android:text="@string/logout"
             android:textAlignment="textStart"
             android:textAllCaps="false"
             android:textColor="@color/white"
-            android:textSize="16dp"
+            android:textSize="16sp"
             android:textStyle="bold" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

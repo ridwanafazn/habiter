@@ -20,7 +20,7 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_marginTop="12dp"
-            android:layout_marginRight="15dp"
+            android:layout_marginEnd="15dp"
             android:backgroundTint="@color/transparent"
             android:src="@drawable/ic_close"
             app:layout_constraintRight_toRightOf="parent"
@@ -31,9 +31,9 @@
             android:layout_height="40dp"
             android:layout_marginTop="12dp"
             android:gravity="center"
-            android:text="Edit Profil"
+            android:text="@string/edit_profil"
             android:textColor="#a2a285"
-            android:textSize="20dp"
+            android:textSize="20sp"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -96,9 +96,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:paddingLeft="4dp"
-                android:text="Display Name"
-                android:textColor="@color/white" />
+                android:paddingStart="4dp"
+                android:text="@string/display_name"
+                android:textColor="@color/white"
+                tools:ignore="RtlSymmetry" />
 
             <EditText
                 android:id="@+id/input_username"
@@ -111,7 +112,8 @@
                 android:paddingHorizontal="16dp"
                 android:paddingVertical="12dp"
                 android:textColor="@color/white"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                android:autofillHints="" />
         </LinearLayout>
     </LinearLayout>
 
@@ -133,9 +135,9 @@
             android:layout_marginBottom="24dp"
             android:background="@drawable/bg_button"
             android:backgroundTint="@color/orange"
-            android:text="Save"
+            android:text="@string/save"
             android:textAllCaps="false"
-            android:textColor="@color/white"
+            android:textColor="@color/gray"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent" />
 
@@ -146,8 +148,8 @@
             android:layout_marginHorizontal="24dp"
             android:layout_marginBottom="24dp"
             android:background="@drawable/bg_button"
-            android:backgroundTint="#AE0202"
-            android:text="Delete My Account"
+            android:backgroundTint="#CF3739"
+            android:text="@string/delete_my_account"
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:textStyle="bold"
