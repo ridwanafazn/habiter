@@ -3,6 +3,7 @@
 ## Description
 
 Habiter is a mobile app designed for seamless task management and organization. It simplifies adding tasks with details like titles, due dates, and categories. The app features a calendar view to track upcoming, ongoing, and completed tasks. With a user-friendly interface and a login/logout option for personalized use, Habiter aims to streamline and enhance daily task management.
+The habiter application is very useful for you in managing your daily habits, so that they are well organized.
 
 If you are interested in using the Habiter application, you can download it on [Google PlayStore]()
 
