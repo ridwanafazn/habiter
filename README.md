@@ -30,8 +30,8 @@ If you are interested in using the Habiter application, you can download it on [
 ## Figma - UI Design & Pitch Deck Slide
 [Figma Link](link_figma)
 
-## Pitch Deck Video
-[Video](link_video)
+## Pitch Deck
+[PPT](https://www.canva.com/design/DAF4hnRUuMw/bYrc_ZSmPSgy43ilkcESGw/edit?utm_content=DAF4hnRUuMw&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
 
 ## Features
 Habiter has basic features to manage tasks more effectively. The basic features available on Habiter include:
