@@ -4,8 +4,6 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.util.Log.d
-import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
@@ -21,18 +19,23 @@ import kotlin.collections.ArrayList
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import uas.pam.habiter.R
 import uas.pam.habiter.api.ApiService
-import uas.pam.habiter.network.RetrofitInterface
+import uas.pam.habiter.model.Task
+import uas.pam.habiter.network.ApiClient
 import uas.pam.habiter.ui.CalendarAdapter
 import uas.pam.habiter.ui.CalendarDateModel
 
 class HomeActivity : AppCompatActivity(), CalendarAdapter.onItemClickListener {
     private var retrofit: Retrofit? = null
     private var retrofitInterface: ApiService? = null
-    private val BASE_URL = "https://habiter-api.vercel.app"
+    private val BASE_URL = "https://habiter-api.vercel.app/"
+    private var listTask: List<Task>? = null
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var tvDateMonth: TextView
@@ -54,21 +57,37 @@ class HomeActivity : AppCompatActivity(), CalendarAdapter.onItemClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
-        try {
-            retrofit = Retrofit.Builder()
-                .baseUrl(BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build()
+        val firebaseUser = firebaseAuth.currentUser
 
-            retrofitInterface = retrofit!!.create(ApiService::class.java)
-            Toast.makeText(this, "Retrofit initialization success", Toast.LENGTH_LONG).show()
+        if (firebaseUser != null){
+            val call: Call<List<Task>> = ApiClient.apiService.getAllTasks(firebaseUser.uid)
+            call.enqueue(object : Callback<List<Task>> {
+                override fun onResponse(call: Call<List<Task>>, response: Response<List<Task>>) {
+                    when (response.code()) {
+                        200 -> {
+                            listTask = response.body()
+                            Toast.makeText(this@HomeActivity, "get data success", Toast.LENGTH_LONG).show()
+                        }
+                        404 -> {
+                            listTask = null
+                            Toast.makeText(this@HomeActivity, "try again :(", Toast.LENGTH_LONG).show()
+                        }
+                        else -> {
+                            listTask = null
+                            Toast.makeText(this@HomeActivity, "apeuni", Toast.LENGTH_LONG).show()
+                        }
+                    }
+                    Log.d("coba", "ini 3 ${response}")
 
-        } catch (e: Exception) {
-            e.printStackTrace()
-            Log.d("cobaba", "$e")
-            // Handle the initialization failure here
-            Toast.makeText(this, "Retrofit initialization failed", Toast.LENGTH_LONG).show()
+                }
+
+                override fun onFailure(call: Call<List<Task>?>, t: Throwable) {
+                    Toast.makeText(this@HomeActivity, t.message, Toast.LENGTH_LONG).show()
+                    Log.d("coba", "ini 4 ${t.message}")
+                }
+            })
         }
+
 
         btnSetting = findViewById<AppCompatImageButton>(R.id.button_setting)
 
@@ -89,7 +108,6 @@ class HomeActivity : AppCompatActivity(), CalendarAdapter.onItemClickListener {
             .build()
         googleSignInClient = GoogleSignIn.getClient(this, gso)
 
-        val firebaseUser = firebaseAuth.currentUser
         if(firebaseUser!=null){
             textFullName.text = firebaseUser.displayName
         }else{

@@ -69,16 +69,6 @@ class FormActivity : AppCompatActivity() {
     private lateinit var btnFriday: CheckedTextView
     private lateinit var btnSaturday: CheckedTextView
 
-    /*
-    private lateinit var custom_task_blue: CheckedTextView
-    private lateinit var custom_task_green: CheckedTextView
-    private lateinit var custom_task_yellow: CheckedTextView
-    private lateinit var custom_task_orange: CheckedTextView
-    private lateinit var custom_task_pink: CheckedTextView
-    private lateinit var custom_task_purple: CheckedTextView
-    */
-
-
     //    private val customColors = booleanArrayOf(false, false, false, false, false, false, false)
     private val customDays = booleanArrayOf(true, true, true, true, true, true, true)
 
@@ -117,7 +107,7 @@ class FormActivity : AppCompatActivity() {
                     requestBody = Task(
                         title = inputNameHabit.text.toString(),
                         type = "one-time",
-                        startDate = convertStringToDate(inputEndDate.text.toString()),
+                        startDate = convertStringToDate(inputDate.text.toString()),
                     )
                     Log.d("coba", "ini 6 ${firebaseUser.uid} $requestBody")
                     createTask(firebaseUser.uid, requestBody)
@@ -126,7 +116,7 @@ class FormActivity : AppCompatActivity() {
                     Toast.makeText(this, "Please fill out the form", Toast.LENGTH_SHORT).show()
                 }
             } else if (btnRegularTaskMenu.isChecked) {
-                if (inputNameHabit.text.isNotEmpty() || checkBoxEndDate.isChecked && inputEndDate.text.isNotEmpty()) {
+                if (inputNameHabit.text.isNotEmpty() && !checkBoxEndDate.isChecked|| inputNameHabit.text.isNotEmpty() && checkBoxEndDate.isChecked && inputEndDate.text.isNotEmpty()) {
                     requestBody = Task(
                         title = inputNameHabit.text.toString(),
                         type = "regular",
@@ -149,9 +139,9 @@ class FormActivity : AppCompatActivity() {
     }
 
     private fun createTask(userId: String, task: Task) {
-        val call: Call<Task?> = ApiClient.apiService.createTask(userId, task)
-        call?.enqueue(object : Callback<Task?> {
-            override fun onResponse(call: Call<Task?>, response: Response<Task?>) {
+        val call: Call<Task> = ApiClient.apiService.createTask(userId, task)
+        call.enqueue(object : Callback<Task> {
+            override fun onResponse(call: Call<Task>, response: Response<Task>) {
                 when (response.code()) {
                     200 -> {
                         Toast.makeText(this@FormActivity, "add task success", Toast.LENGTH_LONG)
@@ -180,42 +170,9 @@ class FormActivity : AppCompatActivity() {
 
             override fun onFailure(call: Call<Task?>, t: Throwable) {
                 Toast.makeText(this@FormActivity, t.message, Toast.LENGTH_LONG).show()
-                Log.d("coba", "ini 2")
+                Log.d("coba", "ini 2 $t")
             }
         })
-        //        CoroutineScope(Dispatchers.IO).launch {
-//            try {
-//                val response = apiClient.apiService.createTask(userId, task)
-//                withContext(Dispatchers.Main) {
-//                    if (response != null) {
-//                        // Task berhasil dibuat, lakukan tindakan yang diperlukan
-//                        Toast.makeText(
-//                            this@FormActivity,
-//                            "Task created successfully",
-//                            Toast.LENGTH_SHORT
-//                        ).show()
-////                        startActivity(Intent(this@FormActivity, HomeActivity::class.java))
-////                        finish()
-//                        Log.d("coba", "error ga yaw")
-//                    } else {
-//                        // Tangani kesalahan respons dari server
-//                        Toast.makeText(
-//                            this@FormActivity,
-//                            "Failed to create task",
-//                            Toast.LENGTH_SHORT
-//                        ).show()
-//                        Log.d("coba", "hah")
-//                    }
-//                }
-//            } catch (e: Exception) {
-//                // Tangani kesalahan umum
-//                withContext(Dispatchers.Main) {
-//                    Log.d("coba", "apeuni")
-//                    Toast.makeText(this@FormActivity, "An error occurred", Toast.LENGTH_SHORT)
-//                        .show()
-//                }
-//            }
-//        }
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -229,13 +186,6 @@ class FormActivity : AppCompatActivity() {
         btnFriday = findViewById(R.id.friday)
         btnSaturday = findViewById(R.id.saturday)
 
-//        custom_task_blue = findViewById(R.id.custom_task_blue)
-//        custom_task_green = findViewById(R.id.custom_task_green)
-//        custom_task_yellow = findViewById(R.id.custom_task_yellow)
-//        custom_task_orange = findViewById(R.id.custom_task_orange)
-//        custom_task_pink = findViewById(R.id.custom_task_pink)
-//        custom_task_purple = findViewById(R.id.custom_task_purple)
-
         btnClose = findViewById(R.id.btnback)
         btnSubmit = findViewById(R.id.button_submit)
         btnOneTaskMenu = findViewById(R.id.button_oneTask)
@@ -243,7 +193,6 @@ class FormActivity : AppCompatActivity() {
 
         inputOneTaskMenu = findViewById(R.id.input_oneTimeTask)
         inputRegularTaskMenu = findViewById(R.id.input_regularTask)
-//        layoutRepeatDays = findViewById(R.id.container_custom_repeat)
 
         checkBoxEndDate = findViewById(R.id.checkbox_endDate)
         checkBoxRepeatAllDay = findViewById(R.id.checkbox_repeatAllDays)
@@ -261,89 +210,6 @@ class FormActivity : AppCompatActivity() {
         btnSubmit.setOnClickListener {
             submitForm()
         }
-
-//        }
-//        {
-//            if (firebaseUser != null){
-//                if (inputNameHabit.text.isNotEmpty() || (inputNameHabit.text.isNotEmpty() && checkBoxEndDate.isChecked && inputEndDate.text.isNotEmpty())){
-//                    val task = Task(
-//                        userId = firebaseUser.uid,
-//                        title = inputNameHabit.text.toString(),
-//                        type = if (btnOneTaskMenu.isChecked) "one-time" else "regular",
-//                        repeatDay = customDays.mapIndexed { index, checked -> if (checked) index else null }.filterNotNull(),
-//                        startDate = convertStringToDate(inputDate.text.toString()),
-//                        endDate = if(checkBoxEndDate.isChecked) convertStringToDate(inputEndDate.text.toString()) else null,
-//                        progress = {}
-//                    )
-//
-//                    ApiClient.apiService.createTask(firebaseUser.uid, task)
-//                        .enqueue(object : Callback<Task> {
-//                            override fun onResponse(call: Call<Task>, response: Response<Task>) {
-//                                // Task berhasil dibuat
-//                                Toast.makeText(this@FormActivity, "Task created", Toast.LENGTH_SHORT).show()
-//                            }
-//
-//                            override fun onFailure(call: Call<Task>, t: Throwable) {
-//                                // Error saat create task
-//                                Log.e("MainActivity", "Error creating task", t)
-//                                Toast.makeText(this@FormActivity, "Error creating task", Toast.LENGTH_SHORT).show()
-//                            }
-//                        })
-//                } else {
-//                    Toast.makeText(this, "Please fill out the form", Toast.LENGTH_SHORT).show()
-//                }
-//            } else {
-//                Toast.makeText(this, "Internal Server Error, Try it later", Toast.LENGTH_SHORT).show()
-//            }
-//        }
-//        btnSubmit.setOnClickListener {
-//            val requestBody: Task
-//            val apiClient: ApiClient
-//            val firebaseUser = firebaseAuth.currentUser
-//
-//            val userId = firebaseUser?.uid // Mendapatkan ID pengguna dari Firebase
-//            val title = inputNameHabit.text.toString()
-//            val type = if (btnOneTaskMenu.isChecked) "one-time" else "regular"
-//            val repeatDays = customDays.mapIndexed { index, checked -> if (checked) index else null }.filterNotNull()
-//            val startDate = inputDate.text.toString() // Konversi ke tanggal jika perlu
-//            val endDate = if (checkBoxEndDate.isChecked) inputEndDate.text.toString() else null
-//
-//            val task = Task(
-//                userId = userId,
-//                title = title,
-//                type = type,
-//            )
-//
-//            try {
-//                val response = apiClient.apiService.createTask(userId!!, task)
-//                if (response.isSuccessful) {
-//                    val createdTask = response.body()
-//                    // Handle respons dari server
-//                    Toast.makeText(this, "Task created successfully", Toast.LENGTH_SHORT).show()
-//                } else {
-//                    // Tangani kesalahan respons dari server
-//                    Toast.makeText(this, "Failed to create task", Toast.LENGTH_SHORT).show()
-//                }
-//            } catch (e: Exception) {
-//                // Tangani kesalahan umum
-//                Toast.makeText(this, "An error occurred", Toast.LENGTH_SHORT).show()
-//            }
-
-
-//            if (btnOneTaskMenu.isChecked){
-//                if (inputNameHabit.text.isNotEmpty() && inputDate.text.isNotEmpty()){
-//
-//                } else {
-//                    Toast.makeText(this, "Please fill out the form", Toast.LENGTH_SHORT).show()
-//                }
-//            } else if(btnRegularTaskMenu.isChecked) {
-//                if (inputNameHabit.text.isNotEmpty() || (inputNameHabit.text.isNotEmpty() && checkBoxEndDate.isChecked && inputEndDate.text.isNotEmpty())){
-//
-//                } else {
-//                    Toast.makeText(this, "Please fill out the form", Toast.LENGTH_SHORT).show()
-//                }
-//            }
-//        }
 
         checkBoxEndDate.setOnClickListener { view ->
             val isChecked = (view as CheckBox).isChecked
@@ -415,44 +281,6 @@ class FormActivity : AppCompatActivity() {
         btnOneTaskMenu.setOnClickListener(commonClickListener)
         btnRegularTaskMenu.setOnClickListener(commonClickListener)
 
-
-//        for ((index, day) in customRepeat.withIndex()) {
-//            val checkedTextView = CheckedTextView(this)
-//            checkedTextView.layoutParams = FlexboxLayout.LayoutParams(
-//                resources.getDimensionPixelSize(R.dimen.checked_text_size),
-//                resources.getDimensionPixelSize(R.dimen.checked_text_size)
-//            )
-//            checkedTextView.text = day.label
-//            checkedTextView.setBackgroundResource(R.drawable.bg_circle)
-//            checkedTextView.gravity = android.view.Gravity.CENTER
-//            checkedTextView.textAlignment = View.TEXT_ALIGNMENT_CENTER
-//            checkedTextView.setTextColor(resources.getColor(R.color.white, null))
-//            checkedTextView.isChecked = day.checked
-//            updateStyles(checkedTextView)
-//            checkedTextView.setOnClickListener { view ->
-//                // Handle the click event
-//                val isChecked = (view as CheckedTextView).isChecked
-//                view.isChecked = !isChecked
-//
-//                customRepeat[index].checked = !isChecked
-//
-//                if (day.checked) {
-//                    updateStyles(checkedTextView)
-//                } else {
-//                    updateStyles(checkedTextView)
-//                }
-//            }
-//
-//            checkedDaysArray[index] = checkedTextView
-//            layoutRepeatDays.addView(checkedTextView)
-//        }
-//
-//        // Example of getting checked items
-//        val checkedItems = checkedDaysArray.filter { it?.isChecked == true }
-//        val checkedTextViewNames = checkedItems.map { it?.text.toString() }
-//        // Use customRepeat to access checked status
-//        val checkedDays = customRepeat.filter { it.checked }.map { it.label }
-
         fun showDatePicker(inputField: EditText) {
             val c = Calendar.getInstance()
             val year = c.get(Calendar.YEAR)
@@ -512,12 +340,5 @@ class FormActivity : AppCompatActivity() {
         btnSaturday.setOnClickListener { view ->
             toggleButtonState(view as CheckedTextView, 6)
         }
-//
-//        custom_task_blue.setOnClickListener {view -> colorButtonState(view as CheckedTextView, 0)}
-//        custom_task_green.setOnClickListener {view -> colorButtonState(view as CheckedTextView, 1)}
-//        custom_task_yellow.setOnClickListener {view -> colorButtonState(view as CheckedTextView, 2)}
-//        custom_task_orange.setOnClickListener {view -> colorButtonState(view as CheckedTextView, 3)}
-//        custom_task_pink.setOnClickListener {view -> colorButtonState(view as CheckedTextView, 4)}
-//        custom_task_purple.setOnClickListener {view -> colorButtonState(view as CheckedTextView, 5)}
     }
 }

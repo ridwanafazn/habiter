@@ -48,7 +48,6 @@ class CalendarAdapter(private val listener: (calendarDateModel: CalendarDateMode
         holder.itemView.setOnClickListener {
             itemList.isSelected = true // Mark the clicked item as selected
             listener.invoke(itemList, position)
-
         }
 
         // Highlight the current day and selected day with different colors

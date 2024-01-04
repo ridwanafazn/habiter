@@ -15,7 +15,7 @@ import uas.pam.habiter.model.Task
 interface ApiService {
     // GET all tasks for a specific user
     @GET("/user/{userId}/tasks")
-    fun getAllTasks(@Path("userId") userId: String): List<Task>
+    fun getAllTasks(@Path("userId") userId: String): Call<List<Task>>
 
     // GET all tasks for a specific user by current date or custom date
     @GET("/user/{userId}/task-today")
@@ -36,7 +36,7 @@ interface ApiService {
     fun createTask(
         @Path("userId") userId: String,
         @Body task: Task
-    ): Call<Task?>
+    ): Call<Task>
 
     // PUT update progress for a task
     @PUT("/user/{userId}/task/{id}/update-progress")
