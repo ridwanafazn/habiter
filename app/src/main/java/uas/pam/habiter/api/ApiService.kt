@@ -22,7 +22,7 @@ interface ApiService {
     fun getTasksByDate(
         @Path("userId") userId: String,
         @Query("date") date: String? = null
-    ): List<Task>
+    ): Call<List<Task>>
 
     // GET a specific task for a specific user
     @GET("/user/{userId}/task/{id}")

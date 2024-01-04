@@ -18,6 +18,7 @@ data class Task(
         val dailyProgress: String = "none"
     )
 }
+
 //data class Task(
 //    val title: String,
 //    val type: String,
