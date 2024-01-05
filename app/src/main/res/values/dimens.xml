@@ -24,4 +24,8 @@
     <dimen name="hero_mb">60dp</dimen>
     <dimen name="input_ph">16dp</dimen>
     <dimen name="input_p">16dp</dimen>
+    <dimen name="btn_ph">20</dimen>
+    <dimen name="btn_pv">14dp</dimen>
+    <dimen name="btn_mv">12dp</dimen>
+    <dimen name="btn_mh">24dp</dimen>
 </resources>
