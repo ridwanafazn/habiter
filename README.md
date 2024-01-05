@@ -29,7 +29,7 @@ If you are interested in using the Habiter application, you can download it on [
 
 ## Habiter Promotion
 "Don't miss out on this special opportunity! Tune in to our mobile app advertisement now to experience an extraordinary journey that will revolutionize your interaction with technology!"
-[Watch Now](https://youtu.be/YwOsuD1WtV4?si=KuILp-fPSxdRq8JD)
+[Watch Now](https://youtu.be/mCjvuOkcN1k)
 
 ## Figma - UI Design & Pitch Deck Slide
 [Figma Link](link_figma)
