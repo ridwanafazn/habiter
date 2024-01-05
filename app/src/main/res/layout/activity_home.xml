@@ -99,7 +99,6 @@
         android:elevation="6dp"
         android:focusable="true"
         android:src="@drawable/ic_add"
-        android:tint="@android:color/white"
         app:fabSize="normal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="parent" />

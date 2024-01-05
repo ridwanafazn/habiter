@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+
 <com.google.android.flexbox.FlexboxLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -10,6 +12,8 @@
     app:flexDirection="column"
     app:justifyContent="space_between"
     >
+
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -189,6 +193,7 @@
                 android:id="@+id/button_google"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:minHeight="48dp"
                 android:background="@drawable/bg_button"
                 android:backgroundTint="@color/white"
                 android:padding="@dimen/btn_p"
@@ -226,8 +231,10 @@
             android:id="@+id/button_signin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:minHeight="48dp"
             android:background="@drawable/bg_button"
             android:text="@string/btn_signin"
+            android:textColorHint="@color/white"
             android:textColor="@color/white"
             android:backgroundTint="@color/gray"
             android:layout_marginBottom="24dp"
@@ -235,4 +242,7 @@
             android:textStyle="bold"
             />
     </LinearLayout>
+
+
+
 </com.google.android.flexbox.FlexboxLayout>
