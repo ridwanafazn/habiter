@@ -36,7 +36,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/title_task"
-                        android:textColor="#FF5722"
+                        android:textColor="#FFB74D"
                         android:textSize="16sp"
                         android:textStyle="bold"
                         />
@@ -53,22 +53,21 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
                     <ImageButton
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
                         android:src="@drawable/ic_delete"
                         android:backgroundTint="@color/transparent"
                         app:tint="#FF5722"
                         android:layout_gravity="center"
                         android:contentDescription="@string/button_delete_task" />
                     <ImageButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
                         android:src="@drawable/ic_check"
                         android:background="@drawable/bg_circle"
                         android:backgroundTint="@color/task_green"
                         app:tint="@color/darkgray"
                         android:layout_gravity="center"
-                        android:padding="4dp"
                         android:contentDescription="@string/button_check_task" />
                     <ImageButton
                         android:layout_width="wrap_content"

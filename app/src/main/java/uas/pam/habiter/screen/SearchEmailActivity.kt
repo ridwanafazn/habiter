@@ -49,17 +49,16 @@ class SearchEmailActivity : AppCompatActivity() {
                         Toast.LENGTH_SHORT
                     ).show()
                 } else {
-                    handleSendPasswordResetEmailError(task.exception)
+                    handleSendPasswordResetEmailError()
                 }
             }
     }
 
-    private fun handleSendPasswordResetEmailError(exception: Exception?) {
+    private fun handleSendPasswordResetEmailError() {
         Toast.makeText(
             this,
             "Failed to send password reset email. Please try again later.",
             Toast.LENGTH_SHORT
         ).show()
-        // Handle other specific errors if needed
     }
 }

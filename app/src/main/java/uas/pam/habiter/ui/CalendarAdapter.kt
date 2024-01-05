@@ -1,26 +1,25 @@
 package uas.pam.habiter.ui
 
-import android.os.Build
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
-import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import uas.pam.habiter.R
 import uas.pam.habiter.screen.HomeActivity
 import kotlin.collections.ArrayList
 import android.graphics.Typeface
-
+import androidx.appcompat.content.res.AppCompatResources
 
 
 class CalendarAdapter(private val listener: (calendarDateModel: CalendarDateModel, position: Int) -> Unit) :
     RecyclerView.Adapter<CalendarAdapter.CalendarViewHolder>() {
 
     private var list = ArrayList<CalendarDateModel>()
-    var adapterPosition = -1
+    /*var adapterPosition = -1*/
 
 
     interface onItemClickListener{
@@ -54,21 +53,23 @@ class CalendarAdapter(private val listener: (calendarDateModel: CalendarDateMode
         if (itemList.isCurrentDay) {
             holder.calendarDay.setTextColor(ContextCompat.getColor(holder.itemView.context, R.color.colorAccent))
             holder.calendarDate.setTextColor(ContextCompat.getColor(holder.itemView.context, R.color.colorAccent))
-            holder.linear.background = holder.itemView.context.getDrawable(R.drawable.bg_rectangle_fill)
+            holder.linear.background = AppCompatResources.getDrawable(holder.itemView.context, R.drawable.bg_rectangle_fill)
+
         } else if (itemList.isSelected) {
             holder.calendarDay.setTypeface(null, Typeface.BOLD)
             holder.calendarDate.setTypeface(null, Typeface.BOLD)
 
             holder.calendarDay.setTextColor(ContextCompat.getColor(holder.itemView.context, R.color.colorSelectedText))
             holder.calendarDate.setTextColor(ContextCompat.getColor(holder.itemView.context, R.color.colorSelectedText))
-            holder.linear.background = holder.itemView.context.getDrawable(R.drawable.bg_rectangle_fill)
+            holder.linear.background = AppCompatResources.getDrawable(holder.itemView.context, R.drawable.bg_rectangle_fill)
+
         } else {
             holder.calendarDay.setTypeface(null, Typeface.NORMAL)
             holder.calendarDate.setTypeface(null, Typeface.NORMAL)
 
             holder.calendarDay.setTextColor(ContextCompat.getColor(holder.itemView.context, R.color.colorWhite))
             holder.calendarDate.setTextColor(ContextCompat.getColor(holder.itemView.context, R.color.colorWhite))
-            holder.linear.background = holder.itemView.context.getDrawable(R.drawable.bg_rectangle_outline)
+            holder.linear.background = AppCompatResources.getDrawable(holder.itemView.context, R.drawable.bg_rectangle_outline)
         }
     }
     override fun getItemCount(): Int {
@@ -81,6 +82,7 @@ class CalendarAdapter(private val listener: (calendarDateModel: CalendarDateMode
         val linear = itemView.findViewById<LinearLayout>(R.id.linear_calendar)
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     fun setData(calendarList: ArrayList<CalendarDateModel>) {
         list.clear()
         list.addAll(calendarList)

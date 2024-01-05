@@ -11,6 +11,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
 import androidx.appcompat.widget.AppCompatImageButton
+import androidx.core.content.ContextCompat
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
@@ -22,8 +23,6 @@ import uas.pam.habiter.R
 
 class EditProfileActivity : AppCompatActivity() {
     private lateinit var btnCloseEditProfile: AppCompatImageButton
-//    private lateinit var btnUpdatePhoto: ImageButton
-//    private lateinit var btnDeletePhoto: ImageButton
     private lateinit var btnSave: AppCompatButton
     private lateinit var inputUsername: EditText
     private lateinit var btnDeleteMyAccount: AppCompatButton
@@ -39,8 +38,6 @@ class EditProfileActivity : AppCompatActivity() {
         setContentView(R.layout.activity_edit_profile)
 
         btnCloseEditProfile = findViewById(R.id.btn_close)
-//        btnUpdatePhoto = findViewById(R.id.update_photo)
-//        btnDeletePhoto = findViewById(R.id.delete_photo)
         btnSave = findViewById(R.id.button_signin)
         btnDeleteMyAccount = findViewById(R.id.button_delete_my_account)
         inputUsername = findViewById(R.id.input_username)
@@ -91,7 +88,6 @@ class EditProfileActivity : AppCompatActivity() {
 
     private fun deleteAccount() {
         val user = firebaseAuth.currentUser
-
         user?.let {
             firebaseAuth.signOut()
             googleSignInClient.signOut().addOnCompleteListener {
@@ -115,23 +111,25 @@ class EditProfileActivity : AppCompatActivity() {
         val email = FirebaseAuth.getInstance().currentUser?.email ?: ""
         val verificationMessage = "delete $email"
 
+        val inputField = EditText(this)
+        inputField.hint = "Type the verification phrase"
+        inputField.inputType = InputType.TYPE_CLASS_TEXT
+
+
+
+        val container = LinearLayout(this)
+        container.orientation = LinearLayout.VERTICAL
+        val layoutParams = LinearLayout.LayoutParams(
+            LinearLayout.LayoutParams.MATCH_PARENT,
+            resources.getDimensionPixelSize(R.dimen.minimun)
+        )
+        layoutParams.setMargins(42, 0, 42, 0)
+        inputField.layoutParams = layoutParams
+        container.addView(inputField)
+
         val builder = AlertDialog.Builder(this)
         builder.setTitle("Are you sure to delete?")
             .setPositiveButton("Confirm") { _, _ ->
-                val inputField = EditText(this)
-                inputField.hint = "Type the verification phrase"
-                inputField.inputType = InputType.TYPE_CLASS_TEXT
-
-                val container = LinearLayout(this)
-                container.orientation = LinearLayout.VERTICAL
-                val layoutParams = LinearLayout.LayoutParams(
-                    LinearLayout.LayoutParams.MATCH_PARENT,
-                    LinearLayout.LayoutParams.WRAP_CONTENT
-                )
-                layoutParams.setMargins(42, 0, 42, 0)
-                inputField.layoutParams = layoutParams
-                container.addView(inputField)
-
                 AlertDialog.Builder(this)
                     .setTitle("Please type: $verificationMessage")
                     .setView(container)
@@ -150,6 +148,7 @@ class EditProfileActivity : AppCompatActivity() {
             .setNegativeButton("Cancel", null)
             .show()
     }
+
 
     private fun handleDeleteAccountFailure(exception: Exception?) {
         showToast("Failed to delete your account. Please try again later.")

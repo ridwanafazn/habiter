@@ -31,6 +31,7 @@
         android:textColor="@color/white"
         android:textSize="20sp"
         tools:ignore="LabelFor,TextFields"
+        android:labelFor="@+id/month_view"
         android:autofillHints="" />
 
 </LinearLayout>
