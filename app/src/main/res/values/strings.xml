@@ -79,5 +79,16 @@
     <string name="button_delete_task">button delete task</string>
     <string name="button_check_task">button check task</string>
     <string name="button_undo_task">button undo task</string>
+    <string name="type_verif">Type the verification phrase</string>
+    <string name="ru_sure">Are you sure to delete your account?</string>
+    <string name="confirm">Confirm</string>
+    <string name="cancel">Cancel</string>
+    <string name="verification_message">Verification Message</string>
+    <string name="verif1">Verification Step to Delete</string>
+    <string name="verif2">Your Habiter Account</string>
+    <string name="are_you_sure_to_delete">Are you sure to delete?</string>
+    <string name="verification_message_below">Verification Message</string>
+    <string name="verification_message_is">verification_message_is</string>
+    <string name="verif_message_placeholder">delete your_account@email.com</string>
 
 </resources>

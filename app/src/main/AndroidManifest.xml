@@ -24,8 +24,9 @@
         <activity
             android:name=".screen.SearchEmailActivity"
             android:exported="false" />
-
-
+        <activity
+            android:name=".screen.DeleteAccountActivity"
+            android:exported="false" />
         <activity
             android:name=".screen.FormActivity"
             android:exported="false" />

@@ -22,5 +22,7 @@
     <color name="task_purple">#673AB7</color>
     <color name="orange">#FF7966</color>
     <color name="darkGray">#424242</color>
+    <color name="stabilo">#A9FE54</color>
+    <color name="red_confirm">#FE6969</color>
 
 </resources>

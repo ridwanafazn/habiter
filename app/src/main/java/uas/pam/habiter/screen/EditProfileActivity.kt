@@ -2,22 +2,16 @@ package uas.pam.habiter.screen
 
 import android.content.Intent
 import android.os.Bundle
-import android.text.InputType
 import android.util.Log
 import android.widget.EditText
-import android.widget.LinearLayout
 import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
 import androidx.appcompat.widget.AppCompatImageButton
-import androidx.core.content.ContextCompat
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
-import com.google.firebase.auth.FirebaseAuthRecentLoginRequiredException
 import com.google.firebase.auth.UserProfileChangeRequest
 import uas.pam.habiter.R
 
@@ -28,8 +22,6 @@ class EditProfileActivity : AppCompatActivity() {
     private lateinit var btnDeleteMyAccount: AppCompatButton
 
     private lateinit var googleSignInClient: GoogleSignInClient
-
-    private val firebaseAuth = FirebaseAuth.getInstance()
 
     private var currentDisplayName: String? = null
 
@@ -51,13 +43,12 @@ class EditProfileActivity : AppCompatActivity() {
         googleSignInClient = GoogleSignIn.getClient(this, gso)
 
 
-
         btnCloseEditProfile.setOnClickListener {
             finish()
         }
         btnSave.setOnClickListener {
             val newDisplayName = inputUsername.text.toString().trim()
-            if (newDisplayName.isNullOrBlank()) {
+            if (newDisplayName.isBlank()) {
                 showToast("Display Name cannot be empty!")
                 return@setOnClickListener
             }
@@ -82,94 +73,13 @@ class EditProfileActivity : AppCompatActivity() {
         }
 
         btnDeleteMyAccount.setOnClickListener {
-            showVerificationDialog()
+            val intent = Intent(this, DeleteAccountActivity::class.java)
+            startActivity(intent)
         }
-    }
 
-    private fun deleteAccount() {
-        val user = firebaseAuth.currentUser
-        user?.let {
-            firebaseAuth.signOut()
-            googleSignInClient.signOut().addOnCompleteListener {
-                it.addOnSuccessListener {
-                    user.delete()
-                        .addOnCompleteListener { task ->
-                            if (task.isSuccessful) {
-                                showToast("Your account has been deleted.")
-                                navigateToLogin()
-                            } else {
-                                handleDeleteAccountFailure(task.exception)
-                            }
-                        }
-                }
-                it.addOnFailureListener {
-                }
-            }
-        }
-    }
-    private fun showVerificationDialog() {
-        val email = FirebaseAuth.getInstance().currentUser?.email ?: ""
-        val verificationMessage = "delete $email"
-
-        val inputField = EditText(this)
-        inputField.hint = "Type the verification phrase"
-        inputField.inputType = InputType.TYPE_CLASS_TEXT
-
-
-
-        val container = LinearLayout(this)
-        container.orientation = LinearLayout.VERTICAL
-        val layoutParams = LinearLayout.LayoutParams(
-            LinearLayout.LayoutParams.MATCH_PARENT,
-            resources.getDimensionPixelSize(R.dimen.minimun)
-        )
-        layoutParams.setMargins(42, 0, 42, 0)
-        inputField.layoutParams = layoutParams
-        container.addView(inputField)
-
-        val builder = AlertDialog.Builder(this)
-        builder.setTitle("Are you sure to delete?")
-            .setPositiveButton("Confirm") { _, _ ->
-                AlertDialog.Builder(this)
-                    .setTitle("Please type: $verificationMessage")
-                    .setView(container)
-                    .setPositiveButton("Submit") { _, _ ->
-                        val userInput = inputField.text.toString().trim()
-
-                        if (userInput.equals(verificationMessage, ignoreCase = true)) {
-                            deleteAccount()
-                        } else {
-                            showToast("Verification failed. Please try again.")
-                        }
-                    }
-                    .setNegativeButton("Cancel", null)
-                    .show()
-            }
-            .setNegativeButton("Cancel", null)
-            .show()
     }
 
 
-    private fun handleDeleteAccountFailure(exception: Exception?) {
-        showToast("Failed to delete your account. Please try again later.")
-        when (exception) {
-            is FirebaseAuthRecentLoginRequiredException,
-            is FirebaseAuthInvalidCredentialsException -> {
-                showToast("Reauthentication is required. Please sign in again.")
-                navigateToLogin()
-            }
-            else -> {
-                exception?.let { e ->
-                    Log.e("DeleteAccount", "Error: ${e.message}")
-                }
-            }
-        }
-    }
-
-    private fun navigateToLogin() {
-        startActivity(Intent(this, LoginActivity::class.java))
-        finish()
-    }
     private fun showToast(message: String) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
@@ -182,8 +92,11 @@ class EditProfileActivity : AppCompatActivity() {
         user?.updateProfile(profileUpdates)
             ?.addOnCompleteListener { task ->
                 if (task.isSuccessful) {
+                    Log.d("UpdateDisplayName", "Display name updated successfully")
                 } else {
+                    Log.e("UpdateDisplayName", "Failed to update display name: ${task.exception}")
                 }
             }
     }
+
 }

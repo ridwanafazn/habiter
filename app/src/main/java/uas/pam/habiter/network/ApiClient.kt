@@ -7,9 +7,9 @@ import uas.pam.habiter.api.ApiService
 
 object ApiClient {
 
-    private val BASE_URL = "https://habiter-api.vercel.app"
+    private const val BASE_URL = "https://habiter-api.vercel.app"
 
-    val retrofit = Retrofit.Builder()
+    private val retrofit: Retrofit = Retrofit.Builder()
         .baseUrl(BASE_URL)
         .addConverterFactory(GsonConverterFactory.create())
         .build()
