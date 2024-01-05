@@ -36,6 +36,7 @@
             android:textSize="18sp"
             android:text="@string/go_for_it"
             android:textColor="#a2a285"
+            android:maxEms="8"
             android:maxLength="40"
             />
     </LinearLayout>

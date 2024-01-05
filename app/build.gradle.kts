@@ -14,7 +14,7 @@ android {
         applicationId = "uas.pam.habiter"
         minSdk = 24
         targetSdk = 34
-        versionCode = 4
+        versionCode = 202401057
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"

@@ -79,6 +79,7 @@
                 android:inputType="text"
                 android:labelFor="@+id/label_email"
                 android:padding="@dimen/input_p"
+                android:maxLength="14"
                 android:textColor="@color/white"
                 android:textColorHint="@color/silver"
                 android:textSize="20sp" />
