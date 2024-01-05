@@ -2,6 +2,7 @@ package uas.pam.habiter.screen
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -20,8 +21,6 @@ class EditProfileActivity : AppCompatActivity() {
     private lateinit var inputDisplayName: EditText
 
     private lateinit var googleSignInClient: GoogleSignInClient
-
-    private val firebaseAuth = FirebaseAuth.getInstance()
 
     private var currentDisplayName: String? = null
 
@@ -70,6 +69,7 @@ class EditProfileActivity : AppCompatActivity() {
             finish()
         }
     }
+
     private fun showToast(message: String) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
@@ -82,9 +82,16 @@ class EditProfileActivity : AppCompatActivity() {
 
         user?.updateProfile(profileUpdates)
             ?.addOnCompleteListener { task ->
+
                 if (task.isSuccessful) {
+                    Log.d("UpdateDisplayName", "Display name updated successfully")
                 } else {
+                    Log.e(
+                        "UpdateDisplayName",
+                        "Failed to update display name: ${task.exception}"
+                    )
                 }
             }
+
     }
 }

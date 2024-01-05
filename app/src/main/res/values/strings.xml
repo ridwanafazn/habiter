@@ -108,4 +108,17 @@
     <string name="label_description">Description</string>
     <string name="hint_describe_your_task_here">Describe your task here</string>
     <string name="title_new_task">New Task</string>
+    <string name="type_verif">Type the verification phrase</string>
+    <string name="ru_sure">Are you sure to delete your account?</string>
+    <string name="confirm">Confirm</string>
+    <string name="cancel">Cancel</string>
+    <string name="verification_message">Verification Message</string>
+    <string name="verif1">Verification Step to Delete</string>
+    <string name="verif2">Your Habiter Account</string>
+    <string name="are_you_sure_to_delete">Are you sure to delete?</string>
+    <string name="verification_message_below">Verification Message</string>
+    <string name="verification_message_is">verification_message_is</string>
+    <string name="verif_message_placeholder">delete your_account@email.com</string>
+    <string name="label_verification">Please enter the verification message to delete your account</string>
+    <string name="title_delete_account">Delete Account</string>
 </resources>
