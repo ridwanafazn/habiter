@@ -131,7 +131,7 @@
                 android:backgroundTint="@color/red_confirm"
                 android:text="@string/confirm"
                 android:textAllCaps="false"
-                android:textColor="@color/gray"
+                android:textColor="@color/black"
                 android:textStyle="bold" />
 
         </LinearLayout>
