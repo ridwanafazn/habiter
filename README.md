@@ -24,7 +24,7 @@ If you are interested in using the Habiter application, you can download it on [
   <summary><b>Click to expand</b></summary>
 
 <div align="center">
-  <img src="Screenshot/signup.jp" alt="Sign Up Page" width="300" />
+  <img src="Screenshot/signup.jpg" alt="Sign Up Page" width="300" />
   <img src="Screenshot/Signin.jpg" alt="Sign In Page" width="300" />
   <img src="Screenshot/home.jpg" alt="Dashboard Page" width="300" />
   <img src="Screenshot/add-task.jpg" alt="Add Task Page" width="300" />
