@@ -16,8 +16,8 @@ If you are interested in using the Habiter application, you can download it on [
 |------------------------|-----------------|
 | Muhammad Rihap Firdaus | 1217050102      |
 | Ridwan Ahmad Fauzan    | 1217050121      |
-| Wildan Sophal Jamil    | 1217050142      |
 | Sumitra Adriansyah     | 1217050137      |
+| Wildan Sophal Jamil    | 1217050142       |
 
 ## Screenshots
 <details>
