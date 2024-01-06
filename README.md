@@ -76,6 +76,4 @@ Habiter has basic features to manage tasks more effectively. The basic features 
 - **Login/logout**: This feature allows users to log in to their accounts and log out of their accounts. Users need to create an account to use Habiter.
 With these basic features, Habiter can fulfill the basic needs of users to manage their tasks.
 
-## Requirements
 
-## Installation
