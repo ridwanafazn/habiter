@@ -25,6 +25,7 @@ If you are interested in using the Habiter application, you can download it on [
   
 ![image](link_image_1)
 
+### Sign Up Page
 </details>
 
 ## Habiter Promotion
