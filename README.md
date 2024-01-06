@@ -22,14 +22,17 @@ If you are interested in using the Habiter application, you can download it on [
 ## Screenshots
 <details>
   <summary><b>Click to expand</b></summary>
-  
-![Sign Up Page](Screenshot/signup.jp)
-![Sign In Page](Screenshot/Signin.jpg)
-![Dashboard Page](Screenshot/home.jpg)
 
+<div align="center">
+  <img src="Screenshot/signup.jp" alt="Sign Up Page" width="300" />
+  <img src="Screenshot/Signin.jpg" alt="Sign In Page" width="300" />
+  <img src="Screenshot/home.jpg" alt="Dashboard Page" width="300" />
+  <img src="Screenshot/add-task.jpg" alt="Add Task Page" width="300" />
+  <img src="Screenshot/setting.jpg" alt="Setting Page" width="300" />
+  <img src="Screenshot/edit-profile.jpg" alt="Edit profile Page" width="300" />
+  <img src="Screenshot/delete-account.jpg" alt="Delete Account Page" width="300" />
+</div>
 
-
-### Sign Up Page
 </details>
 
 ## Habiter Promotion
