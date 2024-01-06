@@ -9,7 +9,7 @@ If you are interested in using the Habiter application, you can download it on [
 
 **Habiter! Stay organized and get things done!**
 
-![Demo Application](https://youtu.be/Sf13BIPW-JA)
+[Demo Aplication](https://youtu.be/Sf13BIPW-JA)
 
 ## Meet Us!
 | Name                   | NIM             |
