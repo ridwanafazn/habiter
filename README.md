@@ -25,6 +25,13 @@ If you are interested in using the Habiter application, you can download it on [
   
 ![image](link_image_1)
 
+<div align="center">
+  <img src="Screenshot/signup.jpg" alt="Sign Up Page" width="300" />
+  <img src="Screenshot/Signin.jpg" alt="Sign In Page" width="300" />
+  <img src="Screenshot/home.jpg" alt="Dashboard Page" width="300" />
+</div>
+
+
 ### Sign Up Page
 </details>
 
