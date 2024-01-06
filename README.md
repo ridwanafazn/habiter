@@ -20,20 +20,47 @@ If you are interested in using the Habiter application, you can download it on [
 | Wildan Sophal Jamil    | 1217050142      |
 
 ## Screenshots
+
 <details>
   <summary><b>Click to expand</b></summary>
 
-<div align="center">
-  <img src="Screenshot/signup.jpg" alt="Sign Up Page" width="300" />
-  <img src="Screenshot/Signin.jpg" alt="Sign In Page" width="300" />
-  <img src="Screenshot/home.jpg" alt="Dashboard Page" width="300" />
-  <img src="Screenshot/add-task.jpg" alt="Add Task Page" width="300" />
-  <img src="Screenshot/setting.jpg" alt="Setting Page" width="300" />
-  <img src="Screenshot/edit-profile.jpg" alt="Edit profile Page" width="300" />
-  <img src="Screenshot/delete-account.jpg" alt="Delete Account Page" width="300" />
-</div>
+### Sign Up Page
+  <div align="center">
+    <img src="Screenshot/signup.jpg" alt="Sign Up Page" width="300" />
+  </div>
+
+### Sign In Page
+  <div align="center">
+    <img src="Screenshot/Signin.jpg" alt="Sign In Page" width="300" />
+  </div>
+
+### Dashboard Page
+  <div align="center">
+    <img src="Screenshot/home.jpg" alt="Dashboard Page" width="300" />
+  </div>
+
+### Add Task Page
+  <div align="center">
+    <img src="Screenshot/add-task.jpg" alt="Add Task Page" width="300" />
+  </div>
+
+### Setting Page
+  <div align="center">
+    <img src="Screenshot/setting.jpg" alt="Setting Page" width="300" />
+  </div>
+
+### Edit Profile Page
+  <div align="center">
+    <img src="Screenshot/edit-profile.jpg" alt="Edit profile Page" width="300" />
+  </div>
+
+### Delete Account Page
+  <div align="center">
+    <img src="Screenshot/delete-account.jpg" alt="Delete Account Page" width="300" />
+  </div>
 
 </details>
+
 
 ## Habiter Promotion
 "Don't miss out on this special opportunity! Tune in to our mobile app advertisement now to experience an extraordinary journey that will revolutionize your interaction with technology!"
