@@ -9,19 +9,22 @@ If you are interested in using the Habiter application, you can download it on [
 
 **Habiter! Stay organized and get things done!**
 
-# Code Exploration by Yourself 
-
-If you want to customize this code, clone this and going to branch master (not main branch)
-
 [Demo Aplication](https://youtu.be/Sf13BIPW-JA)
 
-## Meet Us!
+
+## Introduce our Team Contributors!
 | Name                   | NIM             |
 |------------------------|-----------------|
 | Muhammad Rihap Firdaus | 1217050102      |
 | Ridwan Ahmad Fauzan    | 1217050121      |
 | Sumitra Adriansyah     | 1217050137      |
 | Wildan Sophal Jamil    | 1217050142      |
+
+
+# Code Exploration by Yourself 
+
+If you want to customize this code, clone this and going to branch master (not main branch)
+
 
 ## Screenshots
 
