@@ -9,6 +9,8 @@ If you are interested in using the Habiter application, you can download it on [
 
 **Habiter! Stay organized and get things done!**
 
+# If you want to customize this code, clone this and going to branch master (not main branch)
+
 [Demo Aplication](https://youtu.be/Sf13BIPW-JA)
 
 ## Meet Us!
@@ -72,10 +74,6 @@ If you are interested in using the Habiter application, you can download it on [
 Habiter has basic features to manage tasks more effectively. The basic features available on Habiter include:
 
 - **Add tasks**: This feature allows users to add new tasks to their to-do list. Users can add task titles, task descriptions, due dates, and task categories.
-- **View the calendar**: This feature allows users to view a calendar that displays all the tasks they have. Users can view upcoming tasks, tasks in progress, and completed tasks.
+- **View the calendar**: This feature allows users to view a calendar that displays all the tasks they have. Users can view upcoming tasks, tasks in progress, and completed tasks. (feature is under maintenance)
 - **Login/logout**: This feature allows users to log in to their accounts and log out of their accounts. Users need to create an account to use Habiter.
 With these basic features, Habiter can fulfill the basic needs of users to manage their tasks.
-
-## Requirements
-
-## Installation
